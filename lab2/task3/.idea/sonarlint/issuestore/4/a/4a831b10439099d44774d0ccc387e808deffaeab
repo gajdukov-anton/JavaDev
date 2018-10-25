@@ -1,0 +1,11 @@
+
+?squid:S1643"Use a StringBuilder instead.(µ»Æôıÿÿÿÿ8§¦¬äê,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(•Í«»şÿÿÿÿ8§¦¬äê,
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(²Î-8§¦¬äê,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(¢á–¹şÿÿÿÿ8§¦¬äê,
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ö“ª×8§¦¬äê,
+Lsquid:S2140")Use "java.util.Random.nextInt()" instead.(µ»Æôıÿÿÿÿ8§¦¬äê,

@@ -1,0 +1,8 @@
+
+?squid:S1643"Use a StringBuilder instead.(‘‡øûÿÿÿÿ8ĞÓ¥äê,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(ıÍ•ıùÿÿÿÿ8ĞÓ¥äê,
+Dsquid:S1168"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+Dsquid:S1168"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+Dsquid:S1168$"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+Dsquid:S1168)"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
