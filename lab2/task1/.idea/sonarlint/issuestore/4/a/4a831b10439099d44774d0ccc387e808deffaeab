@@ -1,8 +1,12 @@
 
-?squid:S1643"Use a StringBuilder instead.(‘‡øûÿÿÿÿ8ĞÓ¥äê,
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(ıÍ•ıùÿÿÿÿ8ĞÓ¥äê,
-Dsquid:S1168"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
-Dsquid:S1168"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
-Dsquid:S1168$"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
-Dsquid:S1168)"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(Şœã8ĞÓ¥äê,
+Dsquid:S1168&"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+nsquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(¢ıä ıÿÿÿÿ8Â³Çèê,
+msquid:S2259"JA "NullPointerException" could be thrown; "maskIntArray" is nullable here.(‘‡øûÿÿÿÿ8ŠÊïèê,
+Dsquid:S1168"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(®Ğûº8á¾‰çê,
+?squid:S1643"Use a StringBuilder instead.(‘‡øûÿÿÿÿ8ĞÓ¥äê,
+Dsquid:S1168 "&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
+Dsquid:S1168+"&Return an empty array instead of null.(¥¹ï8ĞÓ¥äê,
