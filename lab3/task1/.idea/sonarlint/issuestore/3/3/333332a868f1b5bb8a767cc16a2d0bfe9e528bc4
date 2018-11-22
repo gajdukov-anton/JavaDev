@@ -1,0 +1,4 @@
+
+qsquid:S1450"SRemove the "data" field and declare it as a local variable in the relevant methods.(ëÿšÊ8ÀÎæò,
+Fsquid:S1068"(Remove this unused "data" private field.(ëÿšÊ8Ò¶íâò,
+~squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦èššûÿÿÿÿ8Æ¦ß´ó,
