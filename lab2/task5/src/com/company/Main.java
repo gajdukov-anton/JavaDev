@@ -9,7 +9,6 @@ public class Main {
         if (checkInputArgumentsForCorrectness(args)) {
             try {
                 WordsFinder wordsFinder = new WordsFinder(args[0], Integer.parseInt(args[1]));
-                wordsFinder.showMapWithWords();
                 wordsFinder.showListWithWords();
             } catch (IOException e) {
                 System.out.println("The specified file does not exist");

@@ -1,9 +1,9 @@
 
 3squid:S1643"Use a StringBuilder instead.(Ö–Åš
+psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ö÷›
 T
 squid:S106W"9Replace this use of System.out or System.err by a logger.(ˆåµøÿÿÿÿ
-psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ö÷›
 Fsquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+Tsquid:S1153a"1Directly append the argument of String.valueOf().(ñ™îëûÿÿÿÿ8€¬¿Œë,
 [
 squid:S106a"9Replace this use of System.out or System.err by a logger.(ñ™îëûÿÿÿÿ8€¬¿Œë,
-Tsquid:S1153a"1Directly append the argument of String.valueOf().(ñ™îëûÿÿÿÿ8€¬¿Œë,
