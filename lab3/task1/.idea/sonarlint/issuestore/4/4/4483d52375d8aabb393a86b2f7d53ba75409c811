@@ -1,13 +1,13 @@
 
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8¸ŸäÔó,
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆŸØíúÿÿÿÿ8‡¬æÔó,
+nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(Ù¬¤–úÿÿÿÿ8±ÌíÁó,
+Zsquid:S2589"7Remove this expression which always evaluates to "true"(¥’á¤ıÿÿÿÿ8‡¬æÔó,
+dsquid:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8¸ŸäÔó,
 [
 squid:S106"9Replace this use of System.out or System.err by a logger.(Õ¼ó¿ùÿÿÿÿ8¬À Âó,
 msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü®¦„8ö¿¿ñ,
-dsquid:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8¸ŸäÔó,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8¸ŸäÔó,
 asquid:UnusedPrivateMethod$"0Remove this unused private "testScript1" method.(š‰¼˜ÿÿÿÿÿ8ê¨•’ó,
 ssquid:UnusedPrivateMethodH"BRemove this unused private "getNumberOfSupermarketManager" method.(›µÚ¿ûÿÿÿÿ8“‹’ó,
-nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(Ù¬¤–úÿÿÿÿ8±ÌíÁó,
 asquid:UnusedPrivateMethod1"0Remove this unused private "testScript2" method.(¿«çÄüÿÿÿÿ8Æ Âó,
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆŸØíúÿÿÿÿ8‡¬æÔó,
-Zsquid:S2589"7Remove this expression which always evaluates to "true"(¥’á¤ıÿÿÿÿ8‡¬æÔó,
