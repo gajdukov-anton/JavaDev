@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Supermarket.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket</a> &gt; <span class="el_source">Supermarket.java</span></div><h1>Supermarket.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket;
+
+import com.mycompany.supermarket.cashDesk.CashDesk;
+import com.mycompany.supermarket.customer.Customer;
+import com.mycompany.supermarket.product.Product;
+import com.mycompany.supermarket.time.Time;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Supermarket {
+    private List&lt;Customer&gt; customers;
+    private List&lt;Pair&lt;Product, Integer&gt;&gt; products;
+    private boolean isOpen;
+    private CashDesk cashDesk;
+<span class="fc" id="L17">    private String startTime = &quot;8:30&quot;;</span>
+<span class="fc" id="L18">    private String finishTime = &quot;21:30&quot;;</span>
+
+
+<span class="fc" id="L21">    public Supermarket() {</span>
+<span class="fc" id="L22">        this.customers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L23">        this.products = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L24">        this.cashDesk = new CashDesk();</span>
+<span class="fc" id="L25">    }</span>
+
+    public void open(List&lt;Pair&lt;Product, Integer&gt;&gt; products) {
+<span class="fc" id="L28">        this.products = products;</span>
+<span class="fc" id="L29">        this.isOpen = true;</span>
+<span class="fc" id="L30">    }</span>
+
+    public void close() {
+<span class="fc" id="L33">        isOpen = false;</span>
+<span class="fc" id="L34">        products.clear();</span>
+<span class="fc" id="L35">    }</span>
+
+    public boolean canBeOpen(Time time) {
+<span class="fc" id="L38">        return startTime.equals(time.getCurrentTime());</span>
+    }
+
+    public boolean canBeClose(Time time) {
+<span class="fc" id="L42">        return finishTime.equals(time.getCurrentTime());</span>
+    }
+
+    public void setCustomers(List&lt;Customer&gt; customers) {
+<span class="fc" id="L46">        this.customers = customers;</span>
+<span class="fc" id="L47">    }</span>
+
+    public void setProducts(List&lt;Pair&lt;Product, Integer&gt;&gt; products) {
+<span class="fc" id="L50">        this.products = products;</span>
+<span class="fc" id="L51">    }</span>
+
+    public List&lt;Customer&gt; getCustomers() {
+<span class="fc" id="L54">        return customers;</span>
+    }
+
+    public boolean isOpen() {
+<span class="fc" id="L58">        return this.isOpen;</span>
+    }
+
+    public List&lt;Pair&lt;Product, Integer&gt;&gt; getProducts() {
+<span class="fc" id="L62">        return products;</span>
+    }
+
+    public int getIdProduct(Product product) {
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (int i = 0; i &lt; products.size(); i++) {</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            if (product.equals(products.get(i).getKey())) {</span>
+<span class="fc" id="L68">                return i;</span>
+            }
+        }
+<span class="fc" id="L71">        return -1;</span>
+    }
+
+    public CashDesk getCashDesk() {
+<span class="fc" id="L75">        return this.cashDesk;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

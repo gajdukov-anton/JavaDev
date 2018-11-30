@@ -1,0 +1,4 @@
+
+`squid:S2094"BRemove this empty class, write its code or make it an "interface".(¾ÕÌ¹8ßÖóàõ,
+[squid:UselessImportCheck"+Remove this unused import 'org.junit.Test'.(ùøèøÿÿÿÿ8ßÖóàõ,
+Wsquid:UselessImportCheck"-Remove this unused import 'org.junit.Assert'.(­ŞL8à–óàõ,

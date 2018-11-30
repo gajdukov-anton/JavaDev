@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Time.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket.time</a> &gt; <span class="el_source">Time.java</span></div><h1>Time.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket.time;
+
+public class Time {
+    private int minute;
+    private int hour;
+
+<span class="fc" id="L7">    public Time(int minute, int hour) {</span>
+<span class="fc" id="L8">        this.minute = initializeMinute(minute);</span>
+<span class="fc" id="L9">        this.hour = initializeHour(hour);</span>
+<span class="fc" id="L10">    }</span>
+
+    private int initializeMinute(int minute) {
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (minute &gt;= 60) {</span>
+<span class="fc" id="L14">            return 59;</span>
+        }
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (minute &lt; 0) {</span>
+<span class="fc" id="L17">            return 0;</span>
+        }
+<span class="fc" id="L19">        return minute;</span>
+    }
+
+    private int initializeHour(int hour) {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (hour &gt; 24) {</span>
+<span class="fc" id="L24">            return 23;</span>
+        }
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (hour &lt; 0) {</span>
+<span class="fc" id="L27">            return 0;</span>
+        }
+<span class="fc" id="L29">        return hour;</span>
+    }
+
+    public String getCurrentTime() {
+<span class="fc" id="L33">        return String.valueOf(hour + &quot;:&quot; + minute);</span>
+    }
+
+    public void updateTime(int step) {
+<span class="fc" id="L37">        minute += step;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (minute &gt;= 60) {</span>
+<span class="fc" id="L39">            minute = 0;</span>
+<span class="fc" id="L40">            hour++;</span>
+        }
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (hour &gt;= 24) {</span>
+<span class="fc" id="L43">            hour = 0;</span>
+        }
+<span class="fc" id="L45">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

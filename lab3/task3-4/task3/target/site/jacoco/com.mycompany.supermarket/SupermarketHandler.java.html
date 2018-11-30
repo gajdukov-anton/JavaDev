@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SupermarketHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket</a> &gt; <span class="el_source">SupermarketHandler.java</span></div><h1>SupermarketHandler.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket;
+
+import com.mycompany.supermarket.cashDesk.bill.Bill;
+import com.mycompany.supermarket.cashDesk.CashDesk;
+import com.mycompany.supermarket.customer.Customer;
+import com.mycompany.supermarket.customer.CustomerHandler;
+import com.mycompany.supermarket.product.discount.Discount;
+import com.mycompany.supermarket.product.Product;
+import com.mycompany.supermarket.info.message.Message;
+import com.mycompany.supermarket.info.report.Report;
+import com.mycompany.supermarket.time.Time;
+import javafx.util.Pair;
+
+import java.util.*;
+
+public class SupermarketHandler {
+    private Supermarket supermarket;
+    private List&lt;String&gt; names;
+    private List&lt;String&gt; lastNames;
+    private List&lt;String&gt; statusList;
+    private HashMap&lt;String, Boolean&gt; productAccess;
+    private HashMap&lt;String, Boolean&gt; productCountable;
+<span class="fc" id="L23">    private int idCustomer = 0;</span>
+    private Report report;
+
+<span class="fc" id="L26">    public SupermarketHandler(Supermarket supermarket) {</span>
+<span class="fc" id="L27">        this.supermarket = supermarket;</span>
+<span class="fc" id="L28">        this.productAccess = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L29">        this.names = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L30">        this.lastNames = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L31">        this.statusList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L32">        this.productCountable = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L33">        fillLastNamesList();</span>
+<span class="fc" id="L34">        fillNamesList();</span>
+<span class="fc" id="L35">        fillStatusList();</span>
+<span class="fc" id="L36">    }</span>
+
+    public void openSupermarket(Time time) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (supermarket.canBeOpen(time)) {</span>
+<span class="fc" id="L40">            supermarket.open(createProducts());</span>
+<span class="fc" id="L41">            report = new Report();</span>
+<span class="fc" id="L42">            Message.createMessageForOpen();</span>
+        }
+<span class="fc" id="L44">    }</span>
+
+    public void closeSupermarket(Time time) {
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (supermarket.canBeClose(time)) {</span>
+<span class="fc" id="L48">            supermarket.getCashDesk().closeCashDesk(new CashDesk.CloseListener() {</span>
+                @Override
+                public void onCloseCashDesk(List&lt;Customer&gt; customers) {
+<span class="fc" id="L51">                    supermarket.getCustomers().addAll(customers);</span>
+<span class="fc" id="L52">                }</span>
+            });
+<span class="fc" id="L54">            int amountCustomers = supermarket.getCustomers().size();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            for (int i = 0; i &lt; amountCustomers; i++) {</span>
+<span class="fc" id="L56">                removeCustomerFromSupermarket(supermarket.getCustomers().get(0));</span>
+            }
+<span class="fc" id="L58">            supermarket.close();</span>
+<span class="fc" id="L59">            report.showReport();</span>
+<span class="fc" id="L60">            report = null;</span>
+<span class="fc" id="L61">            Message.createMessageForClose();</span>
+        }
+<span class="fc" id="L63">    }</span>
+
+    private List&lt;Pair&lt;Product, Integer&gt;&gt; createProducts() {
+<span class="fc" id="L66">        List&lt;Pair&lt;Product, Integer&gt;&gt; products = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">        fillProductAccess();</span>
+<span class="fc" id="L68">        fillProductCountable();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        for (HashMap.Entry&lt;String, Boolean&gt; elem : productAccess.entrySet()) {</span>
+<span class="fc" id="L70">            Product product = new Product(elem.getKey(), createPrice(), elem.getValue());</span>
+<span class="fc" id="L71">            product.setCountable(productCountable.get(product.getTitle()));</span>
+<span class="fc" id="L72">            setDiscountForProduct(product);</span>
+<span class="fc" id="L73">            products.add(new Pair&lt;&gt;(product, createAmount()));</span>
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        return products;</span>
+    }
+
+
+    private void setDiscountForProduct(Product product) {
+<span class="fc" id="L80">        Random random = new Random();</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (random.nextInt(3) == 0) {</span>
+<span class="fc" id="L82">            Discount discount = new Discount();</span>
+<span class="fc" id="L83">            product.setDiscount(discount);</span>
+<span class="fc" id="L84">            Message.createMessageForSetDiscount(discount, product);</span>
+        }
+<span class="fc" id="L86">    }</span>
+
+
+    public void addNewCustomerInSupermarket() {
+<span class="fc" id="L90">        Customer customer = new Customer(idCustomer);</span>
+<span class="fc" id="L91">        customer.setName(createName());</span>
+<span class="fc" id="L92">        customer.setLastName(createLastName());</span>
+<span class="fc" id="L93">        customer.setStatus(createStatus());</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (supermarket.isOpen()) {</span>
+<span class="fc" id="L95">            supermarket.getCustomers().add(customer);</span>
+<span class="fc" id="L96">            this.idCustomer++;</span>
+<span class="fc" id="L97">            report.increaseCustomers();</span>
+<span class="fc" id="L98">            Message.createMessageForAddNewCustomer(customer);</span>
+        } else {
+<span class="fc" id="L100">            System.out.println(&quot;Supermarket is not open&quot;);</span>
+        }
+<span class="fc" id="L102">    }</span>
+
+    public void removeCustomerFromSupermarket() {
+<span class="fc bfc" id="L105" title="All 4 branches covered.">        if (supermarket.isOpen() &amp;&amp; !supermarket.getCustomers().isEmpty()) {</span>
+<span class="fc" id="L106">            Customer customer = getCustomerFromSupermarket();</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="nc" id="L108">                CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="pc" id="L109">                customerHandler.returnAllProductFromBasket(new CustomerHandler.RemoveProductListener() {</span>
+                    @Override
+                    public void onRemoveProductFromBusker(Product product, int amount) {
+<span class="fc" id="L112">                        returnProductToSupermarket(product, amount);</span>
+<span class="fc" id="L113">                    }</span>
+                });
+            }
+<span class="fc" id="L116">            supermarket.getCustomers().remove(customer);</span>
+<span class="fc" id="L117">            Message.createMessageForRemoveCustomer(customer.getName(), customer.getLastName(), supermarket.getCustomers().size());</span>
+        }
+<span class="fc" id="L119">    }</span>
+
+    private void removeCustomerFromSupermarket(Customer customer) {
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">        if (!supermarket.getCustomers().isEmpty()) {</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L124">                CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="fc" id="L125">                customerHandler.returnAllProductFromBasket(new CustomerHandler.RemoveProductListener() {</span>
+                    @Override
+                    public void onRemoveProductFromBusker(Product product, int amount) {
+<span class="fc" id="L128">                        returnProductToSupermarket(product, amount);</span>
+<span class="fc" id="L129">                    }</span>
+                });
+            }
+<span class="fc" id="L132">            supermarket.getCustomers().remove(customer);</span>
+<span class="fc" id="L133">            Message.createMessageForRemoveCustomer(customer.getName(), customer.getLastName(), supermarket.getCustomers().size());</span>
+        }
+<span class="fc" id="L135">    }</span>
+
+    private void returnProductToSupermarket(Product product, int amount) {
+<span class="fc" id="L138">        int id = supermarket.getIdProduct(product);</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">        if (id &gt;= 0) {</span>
+<span class="fc" id="L140">            int amountProductInSupermarket = supermarket.getProducts().get(id).getValue();</span>
+<span class="fc" id="L141">            supermarket.getProducts().set(id, new Pair&lt;&gt;(product, amountProductInSupermarket + amount));</span>
+        }
+<span class="fc" id="L143">    }</span>
+
+    public Product addProductToBasket() {
+<span class="pc bpc" id="L146" title="1 of 4 branches missed.">        if (!supermarket.getCustomers().isEmpty() &amp;&amp; !supermarket.getProducts().isEmpty()) {</span>
+
+<span class="fc" id="L148">            return addProduct(getCustomerFromSupermarket());</span>
+        }
+<span class="fc" id="L150">        return null;</span>
+    }
+
+    private void addProductToBasket(Customer customer) {
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        if (!supermarket.getProducts().isEmpty()) {</span>
+<span class="fc" id="L155">            addProduct(customer);</span>
+        }
+<span class="fc" id="L157">    }</span>
+
+    private Product addProduct(Customer customer) {
+<span class="fc" id="L160">        int id = getIdProductFromSupermarket();</span>
+<span class="fc" id="L161">        Product product = supermarket.getProducts().get(id).getKey();</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">        if (supermarket.getProducts().get(id).getValue() &gt; 0) {</span>
+<span class="fc" id="L163">            CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="fc" id="L164">            customerHandler.addProductToBasket(product, createAmountProductsForCustomer(product), new CustomerHandler.AddProductListener() {</span>
+                @Override
+                public void onAddProductToBasket(Product product, int amount) {
+<span class="fc" id="L167">                    int amountProduct = supermarket.getProducts().get(id).getValue();</span>
+<span class="fc" id="L168">                    supermarket.getProducts().set(id, new Pair&lt;&gt;(product, amountProduct - amount));</span>
+<span class="fc" id="L169">                }</span>
+            });
+<span class="fc" id="L171">        } else {</span>
+<span class="nc" id="L172">            Message.createMessageForNoProductInSupermarket(product, getCustomerFromSupermarket());</span>
+        }
+<span class="fc" id="L174">        return product;</span>
+    }
+
+    public void setCustomerInCashDesk() {
+<span class="fc bfc" id="L178" title="All 2 branches covered.">        if (!supermarket.getCustomers().isEmpty()) {</span>
+<span class="fc" id="L179">            Customer customer = getCustomerFromSupermarket();</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">            if (customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L181">                addProductToBasket(customer);</span>
+            } else {
+<span class="fc" id="L183">                supermarket.getCashDesk().addCustomer(customer);</span>
+<span class="fc" id="L184">                supermarket.getCustomers().remove(customer);</span>
+            }
+        }
+<span class="fc" id="L187">    }</span>
+
+    public void updateCashDesk() {
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">        if (supermarket.isOpen()) {</span>
+<span class="fc" id="L191">            supermarket.getCashDesk().updateQueue(new CashDesk.Callback() {</span>
+                @Override
+                public void onUserWentOutFromCashDesk(Customer customer) {
+<span class="fc" id="L194">                    supermarket.getCustomers().add(customer);</span>
+<span class="fc" id="L195">                    removeCustomerFromSupermarket(customer);</span>
+<span class="fc" id="L196">                }</span>
+
+                @Override
+                public void onCustomerGetProhibitedProduct(Customer customer, List&lt;Pair&lt;Product, Integer&gt;&gt; prohibitedProducts) {
+<span class="fc" id="L200">                    int amount = prohibitedProducts.size();</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">                    for (int i = 0; i &lt; amount; i++) {</span>
+<span class="fc" id="L202">                        returnProductFromBasket(customer, prohibitedProducts.get(i).getKey(), prohibitedProducts.get(i).getValue());</span>
+                    }
+<span class="fc" id="L204">                }</span>
+
+                @Override
+                public void onCashDeskCreateBill(Customer customer, Bill bill) {
+<span class="fc" id="L208">                    CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">                    for (int i = 0; i &lt; bill.getProducts().size(); i++) {</span>
+<span class="fc" id="L210">                        report.addProduct(bill.getProducts().get(i).getKey(), bill.getProducts().get(i).getValue());</span>
+                    }
+<span class="fc" id="L212">                    customerHandler.payForProducts(bill);</span>
+<span class="fc" id="L213">                }</span>
+            });
+        }
+<span class="fc" id="L216">    }</span>
+
+    public void returnProductFromBasket(Customer customer, Product product, int amount) {
+<span class="fc" id="L219">        CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="fc" id="L220">        customerHandler.layOutProductFromBasket(new Pair&lt;&gt;(product, amount), new CustomerHandler.RemoveProductListener() {</span>
+            @Override
+            public void onRemoveProductFromBusker(Product product, int amount) {
+<span class="fc" id="L223">                returnProductToSupermarket(product, amount);</span>
+<span class="fc" id="L224">            }</span>
+        });
+<span class="fc" id="L226">    }</span>
+
+    private int createAmountProductsForCustomer(Product product) {
+<span class="fc bfc" id="L229" title="All 2 branches covered.">        if (!product.isCountable()) {</span>
+<span class="fc" id="L230">            int id = supermarket.getIdProduct(product);</span>
+<span class="fc" id="L231">            int amountProductInSupermarket = supermarket.getProducts().get(id).getValue();</span>
+<span class="fc" id="L232">            Random random = new Random();</span>
+<span class="fc" id="L233">            int amountProductForCustomer = 1 + random.nextInt(4);</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">            if (amountProductForCustomer &gt; amountProductInSupermarket) {</span>
+<span class="fc" id="L235">                return amountProductInSupermarket;</span>
+            } else {
+<span class="fc" id="L237">                return amountProductForCustomer;</span>
+            }
+        } else {
+<span class="fc" id="L240">            return 1;</span>
+        }
+    }
+
+    public void doAction() {
+<span class="pc bpc" id="L245" title="1 of 2 branches missed.">        if (supermarket.isOpen()) {</span>
+<span class="fc" id="L246">            int numberOfAction = getNumberOfAction(5);</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">            if (numberOfAction == 0) {</span>
+<span class="fc" id="L248">                addNewCustomerInSupermarket();</span>
+            }
+<span class="fc bfc" id="L250" title="All 2 branches covered.">            if (numberOfAction == 1) {</span>
+<span class="fc" id="L251">                removeCustomerFromSupermarket();</span>
+            }
+<span class="fc bfc" id="L253" title="All 2 branches covered.">            if (numberOfAction == 2) {</span>
+<span class="fc" id="L254">                addProductToBasket();</span>
+            }
+<span class="fc bfc" id="L256" title="All 2 branches covered.">            if (numberOfAction == 3) {</span>
+<span class="fc" id="L257">                setCustomerInCashDesk();</span>
+            }
+        }
+<span class="fc" id="L260">    }</span>
+
+
+    private int getNumberOfAction(int amount) {
+<span class="pc bpc" id="L264" title="1 of 2 branches missed.">        if (amount &gt; 1) {</span>
+<span class="fc" id="L265">            Random random = new Random();</span>
+<span class="fc" id="L266">            return random.nextInt(amount);</span>
+        } else {
+<span class="nc" id="L268">            return 0;</span>
+        }
+    }
+
+    private int getIdProductFromSupermarket() {
+<span class="pc bpc" id="L273" title="1 of 2 branches missed.">        if (this.supermarket.getProducts().size() &gt; 1) {</span>
+<span class="fc" id="L274">            Random random = new Random();</span>
+<span class="fc" id="L275">            return random.nextInt(this.supermarket.getProducts().size() - 1);</span>
+        } else {
+<span class="nc" id="L277">            return 0;</span>
+        }
+    }
+
+    public Customer getCustomerFromSupermarket() {
+<span class="fc bfc" id="L282" title="All 2 branches covered.">        if (this.supermarket.getCustomers().size() &gt; 1) {</span>
+<span class="fc" id="L283">            Random random = new Random();</span>
+<span class="fc" id="L284">            int id = random.nextInt(this.supermarket.getCustomers().size() - 1);</span>
+<span class="fc" id="L285">            return this.supermarket.getCustomers().get(id);</span>
+        } else {
+<span class="fc" id="L287">            return this.supermarket.getCustomers().get(0);</span>
+        }
+    }
+
+    private void fillProductAccess() {
+
+<span class="fc" id="L293">        productAccess.put(&quot;Cigarette&quot;, true);</span>
+<span class="fc" id="L294">        productAccess.put(&quot;Beer&quot;, true);</span>
+<span class="fc" id="L295">        productAccess.put(&quot;Doshik&quot;, false);</span>
+<span class="fc" id="L296">        productAccess.put(&quot;Cheese&quot;, false);</span>
+<span class="fc" id="L297">        productAccess.put(&quot;Sausage&quot;, false);</span>
+<span class="fc" id="L298">        productAccess.put(&quot;Milk&quot;, false);</span>
+<span class="fc" id="L299">        productAccess.put(&quot;Chocolate&quot;, false);</span>
+<span class="fc" id="L300">        productAccess.put(&quot;Apple&quot;, false);</span>
+<span class="fc" id="L301">        productAccess.put(&quot;Clips&quot;, false);</span>
+<span class="fc" id="L302">    }</span>
+
+    private void fillProductCountable() {
+<span class="fc" id="L305">        productCountable.put(&quot;Cigarette&quot;, true);</span>
+<span class="fc" id="L306">        productCountable.put(&quot;Beer&quot;, true);</span>
+<span class="fc" id="L307">        productCountable.put(&quot;Doshik&quot;, true);</span>
+<span class="fc" id="L308">        productCountable.put(&quot;Cheese&quot;, false);</span>
+<span class="fc" id="L309">        productCountable.put(&quot;Sausage&quot;, false);</span>
+<span class="fc" id="L310">        productCountable.put(&quot;Milk&quot;, false);</span>
+<span class="fc" id="L311">        productCountable.put(&quot;Chocolate&quot;, true);</span>
+<span class="fc" id="L312">        productCountable.put(&quot;Apple&quot;, false);</span>
+<span class="fc" id="L313">        productCountable.put(&quot;Clips&quot;, true);</span>
+<span class="fc" id="L314">    }</span>
+
+    private void fillNamesList() {
+<span class="fc" id="L317">        this.names.add(&quot;Igritt&quot;);</span>
+<span class="fc" id="L318">        this.names.add(&quot;Eddard&quot;);</span>
+<span class="fc" id="L319">        this.names.add(&quot;John&quot;);</span>
+<span class="fc" id="L320">        this.names.add(&quot;Drogo&quot;);</span>
+<span class="fc" id="L321">        this.names.add(&quot;Jaime&quot;);</span>
+<span class="fc" id="L322">        this.names.add(&quot;Daineries&quot;);</span>
+<span class="fc" id="L323">        this.names.add(&quot;Sansa&quot;);</span>
+<span class="fc" id="L324">    }</span>
+
+    private void fillLastNamesList() {
+<span class="fc" id="L327">        this.lastNames.add(&quot;Stark&quot;);</span>
+<span class="fc" id="L328">        this.lastNames.add(&quot;Snow&quot;);</span>
+<span class="fc" id="L329">        this.lastNames.add(&quot;Lanister&quot;);</span>
+<span class="fc" id="L330">        this.lastNames.add(&quot;Targarien&quot;);</span>
+<span class="fc" id="L331">    }</span>
+
+
+    private void fillStatusList() {
+<span class="fc" id="L335">        this.statusList.add(&quot;Child&quot;);</span>
+<span class="fc" id="L336">        this.statusList.add(&quot;Adult&quot;);</span>
+<span class="fc" id="L337">        this.statusList.add(&quot;Retired&quot;);</span>
+<span class="fc" id="L338">    }</span>
+
+    private double createPrice() {
+<span class="fc" id="L341">        return Math.random() * 500;</span>
+    }
+
+    private Integer createAmount() {
+<span class="fc" id="L345">        Random random = new Random();</span>
+<span class="fc" id="L346">        return 1 + random.nextInt(20);</span>
+    }
+
+    private String createName() {
+<span class="fc" id="L350">        Random random = new Random();</span>
+<span class="fc" id="L351">        int id = random.nextInt(this.names.size() - 1);</span>
+<span class="fc" id="L352">        return this.names.get(id);</span>
+    }
+
+
+    private String createLastName() {
+<span class="fc" id="L357">        Random random = new Random();</span>
+<span class="fc" id="L358">        int id = random.nextInt(this.lastNames.size() - 1);</span>
+<span class="fc" id="L359">        return this.lastNames.get(id);</span>
+    }
+
+
+    private String createStatus() {
+<span class="fc" id="L364">        Random random = new Random();</span>
+<span class="fc" id="L365">        int id = random.nextInt(this.statusList.size());</span>
+<span class="fc" id="L366">        return this.statusList.get(id);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

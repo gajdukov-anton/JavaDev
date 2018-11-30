@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SupermarketSimulator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket</a> &gt; <span class="el_source">SupermarketSimulator.java</span></div><h1>SupermarketSimulator.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket;
+
+import com.mycompany.supermarket.time.Time;
+
+import java.util.Random;
+
+public class SupermarketSimulator {
+    private Supermarket supermarket;
+    private SupermarketHandler supermarketHandler;
+    private Time time;
+
+<span class="fc" id="L12">    public SupermarketSimulator() {</span>
+<span class="fc" id="L13">        this.supermarket = new Supermarket();</span>
+<span class="fc" id="L14">        this.supermarketHandler = new SupermarketHandler(supermarket);</span>
+<span class="fc" id="L15">    }</span>
+
+    public void StartSimulator(int amountIterations) {
+<span class="fc" id="L18">        time = new Time(30, 8);</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (int i = 0; i &lt; amountIterations; i++) {</span>
+<span class="fc" id="L20">            System.out.println(&quot;Current time: &quot; + time.getCurrentTime());</span>
+<span class="fc" id="L21">            supermarketHandler.openSupermarket(time);</span>
+<span class="fc" id="L22">            supermarketHandler.closeSupermarket(time);</span>
+<span class="fc" id="L23">            supermarketHandler.updateCashDesk();</span>
+<span class="fc" id="L24">            supermarketHandler.doAction();</span>
+<span class="fc" id="L25">            time.updateTime(10);</span>
+            try {
+<span class="fc" id="L27">                Thread.sleep(1000);</span>
+<span class="nc" id="L28">            } catch (InterruptedException e) {</span>
+<span class="nc" id="L29">                System.err.println(e.getMessage());</span>
+<span class="fc" id="L30">            }</span>
+        }
+<span class="fc" id="L32">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

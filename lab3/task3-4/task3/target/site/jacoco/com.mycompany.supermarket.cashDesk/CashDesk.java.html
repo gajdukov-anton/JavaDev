@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CashDesk.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket.cashDesk</a> &gt; <span class="el_source">CashDesk.java</span></div><h1>CashDesk.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket.cashDesk;
+
+import com.mycompany.supermarket.cashDesk.bill.Bill;
+import com.mycompany.supermarket.customer.Customer;
+import com.mycompany.supermarket.info.message.Message;
+import com.mycompany.supermarket.product.Product;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CashDesk {
+    private List&lt;Pair&lt;Customer, Integer&gt;&gt; queue;
+
+<span class="fc" id="L15">    public CashDesk() {</span>
+<span class="fc" id="L16">        this.queue = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L17">    }</span>
+
+    public void addCustomer(Customer customer) {
+<span class="fc" id="L20">        this.queue.add(new Pair&lt;&gt;(customer, 3));</span>
+<span class="fc" id="L21">        Message.createMessageForAddCustomerInQueue(customer, this.queue.size());</span>
+<span class="fc" id="L22">    }</span>
+
+    public interface Callback {
+        void onUserWentOutFromCashDesk(Customer customer);
+
+        void onCashDeskCreateBill(Customer customer, Bill bill);
+
+        void onCustomerGetProhibitedProduct(Customer customer, List&lt;Pair&lt;Product, Integer&gt;&gt; prohibitedProducts);
+    }
+
+    public interface CloseListener {
+        void onCloseCashDesk(List&lt;Customer&gt; customers);
+    }
+
+    public void updateQueue(Callback callback) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (!this.queue.isEmpty()) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (this.queue.get(0).getValue() == 1) {</span>
+<span class="fc" id="L39">                Customer customer = this.queue.get(0).getKey();</span>
+<span class="fc" id="L40">                checkProductsInBasket(customer, callback);</span>
+<span class="fc" id="L41">                Bill bill = new Bill(customer.getBasket().getProducts(), customer.getBasket().getTotalPrice());</span>
+<span class="fc" id="L42">                callback.onCashDeskCreateBill(customer, bill);</span>
+<span class="fc" id="L43">                this.queue.remove(0);</span>
+<span class="fc" id="L44">                Message.createMessageForReturnCustomerFromCashDesk(customer, this.queue.size());</span>
+<span class="fc" id="L45">                callback.onUserWentOutFromCashDesk(customer);</span>
+<span class="fc" id="L46">            } else {</span>
+<span class="fc" id="L47">                Customer customer = this.queue.get(0).getKey();</span>
+<span class="fc" id="L48">                int amountTime = this.queue.get(0).getValue() - 1;</span>
+<span class="fc" id="L49">                this.queue.set(0, new Pair&lt;&gt;(customer, amountTime));</span>
+            }
+        }
+<span class="fc" id="L52">    }</span>
+
+    public void closeCashDesk(CloseListener closeListener) {
+<span class="fc" id="L55">        List&lt;Customer&gt; customers = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (int i = 0; i &lt; queue.size(); i++) {</span>
+<span class="fc" id="L57">            customers.add(queue.get(i).getKey());</span>
+        }
+<span class="fc" id="L59">        closeListener.onCloseCashDesk(customers);</span>
+<span class="fc" id="L60">        queue.clear();</span>
+<span class="fc" id="L61">    }</span>
+
+    private void checkProductsInBasket(Customer customer, Callback callback) {
+<span class="fc" id="L64">        List&lt;Pair&lt;Product, Integer&gt;&gt;  prohibitedProducts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for (int i = 0; i &lt; customer.getBasket().getProducts().size(); i++) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            if (!customer.canTakeProduct(customer.getBasket().getProducts().get(i).getKey())) {</span>
+<span class="fc" id="L67">                prohibitedProducts.add(customer.getBasket().getProducts().get(i));</span>
+            }
+        }
+<span class="fc" id="L70">        callback.onCustomerGetProhibitedProduct(customer, prohibitedProducts);</span>
+<span class="fc" id="L71">    }</span>
+
+    public List&lt;Pair&lt;Customer, Integer&gt;&gt; getQueue() {
+<span class="fc" id="L74">        return queue;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

@@ -1,13 +1,0 @@
-
-fsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü®¦„
-Äsquid:S1598" This file "SupermarketSimulator.java" should be located in "com\company\supermarket" directory, not in "E:\GITHUB\JavaDev\lab3\task3\src\main\java\supermarket".(¦ØÀáþÿÿÿÿ8 ÓéÐó,
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8æØãÐó,
-Tsquid:S1153"1Directly append the argument of String.valueOf().(ô—ÚÉúÿÿÿÿ8 ÓéÐó,
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(ô—ÚÉúÿÿÿÿ8æØãÐó,
-nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(Ù¬¤–úÿÿÿÿ8æØãÐó,
-Zsquid:UnusedPrivateMethod$"0Remove this unused private "testScript1" method.(š‰¼˜ÿÿÿÿÿ
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(äÒîÜ8æØãÐó,
-Esquid:S1481"'Remove this unused "is" local variable.(ÿˆÈŸ8æØãÐó,
-lsquid:UnusedPrivateMethodH"BRemove this unused private "getNumberOfSupermarketManager" method.(›µÚ¿ûÿÿÿÿ
-asquid:UnusedPrivateMethod1"0Remove this unused private "testScript2" method.(¿«çÄüÿÿÿÿ8æØãÐó,

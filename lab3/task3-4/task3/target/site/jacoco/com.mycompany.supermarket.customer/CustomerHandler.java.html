@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket.customer</a> &gt; <span class="el_source">CustomerHandler.java</span></div><h1>CustomerHandler.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket.customer;
+
+import com.mycompany.supermarket.cashDesk.bill.Bill;
+import com.mycompany.supermarket.info.message.Message;
+import com.mycompany.supermarket.cashDesk.paymentMethod.PaymentMethod;
+import com.mycompany.supermarket.product.Product;
+import javafx.util.Pair;
+
+import java.util.Random;
+
+public class CustomerHandler {
+    private Customer customer;
+
+<span class="fc" id="L14">    public CustomerHandler(Customer customer) {</span>
+<span class="fc" id="L15">        this.customer = customer;</span>
+
+<span class="fc" id="L17">    }</span>
+
+    public interface AddProductListener {
+        void onAddProductToBasket(Product product, int amount);
+    }
+
+    public interface RemoveProductListener {
+        void onRemoveProductFromBusker(Product product, int amount);
+    }
+
+    public void addProductToBasket(Product product, int amount,  AddProductListener callback) {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (customer.getBasket().isEnoughMoney(product.getPrice(), customer.getAllMoney())) {</span>
+<span class="fc" id="L29">            customer.getBasket().addNewProductToBasket(product, customer.getStatus(), amount);</span>
+<span class="fc" id="L30">            callback.onAddProductToBasket(product, amount);</span>
+<span class="fc" id="L31">            Message.createMessageForAddProductToBasket(product, customer.getBasket(), customer);</span>
+        } else {
+<span class="fc" id="L33">            Message.createMessageForAttemptToAddProductToBasket(product, customer.getBasket(), customer);</span>
+        }
+<span class="fc" id="L35">    }</span>
+
+    public void layOutProductFromBasket(RemoveProductListener removeProductListener) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L39">            Pair&lt;Product, Integer&gt; product = getProductFromBasket();</span>
+<span class="fc" id="L40">            customer.getBasket().getProducts().remove(product);</span>
+<span class="fc" id="L41">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
+<span class="fc" id="L42">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
+        }
+<span class="fc" id="L44">    }</span>
+
+    public void layOutProductFromBasket(Pair&lt;Product, Integer&gt; product, RemoveProductListener removeProductListener) {
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L48">            customer.getBasket().removeProduct(product, customer.getStatus());</span>
+<span class="fc" id="L49">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
+<span class="fc" id="L50">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
+        }
+<span class="fc" id="L52">    }</span>
+
+    public void returnAllProductFromBasket(RemoveProductListener removeProductListener) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        while (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L56">            layOutProductFromBasket(removeProductListener);</span>
+        }
+<span class="fc" id="L58">    }</span>
+
+    public void payForProducts(Bill bill) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L62">            int amountProductInBasket = customer.getBasket().getProducts().size();</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            for (int i = 0; i &lt; amountProductInBasket; i++) {</span>
+<span class="fc" id="L64">                Pair&lt;Product, Integer&gt; product = customer.getBasket().getProducts().get(0);</span>
+<span class="fc" id="L65">                customer.getBasket().getProducts().remove(product);</span>
+            }
+<span class="fc" id="L67">            PaymentMethod.pay(customer, bill);</span>
+        }
+<span class="fc" id="L69">    }</span>
+
+    private Pair&lt;Product, Integer&gt; getProductFromBasket() {
+<span class="fc" id="L72">        Random random = new Random();</span>
+<span class="fc" id="L73">        int id = random.nextInt(this.customer.getBasket().getProducts().size());</span>
+<span class="fc" id="L74">        return this.customer.getBasket().getProducts().get(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

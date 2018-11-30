@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">task3</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.supermarket.customer</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package com.mycompany.supermarket.customer;
+
+import com.mycompany.supermarket.basket.Basket;
+import com.mycompany.supermarket.product.Product;
+
+public class Customer {
+    private int id;
+<span class="fc" id="L8">    private String name = &quot;name&quot;;</span>
+<span class="fc" id="L9">    private String lastName = &quot;lastName&quot;;</span>
+    private double cash;
+    private double bonus;
+    private double cashOnCard;
+<span class="fc" id="L13">    private String status = &quot;Child&quot;;</span>
+    private Basket basket;
+
+<span class="fc" id="L16">    public Customer(int id) {</span>
+<span class="fc" id="L17">        this.id = id;</span>
+<span class="fc" id="L18">        this.basket = new Basket();</span>
+<span class="fc" id="L19">        this.cash = Math.random() * 1000;</span>
+<span class="fc" id="L20">        this.bonus = Math.random() * 100;</span>
+<span class="fc" id="L21">        this.bonus = Math.random() * 300;</span>
+<span class="fc" id="L22">    }</span>
+
+    public boolean canTakeProduct(Product product) {
+<span class="fc bfc" id="L25" title="All 4 branches covered.">        if (product.isNotForChild() &amp;&amp; this.status.equals(&quot;Child&quot;)) {</span>
+<span class="fc" id="L26">            return false;</span>
+        }
+<span class="fc" id="L28">        return true;</span>
+    }
+
+    public void setBonus(double bonus) {
+<span class="fc" id="L32">        this.bonus = bonus;</span>
+<span class="fc" id="L33">    }</span>
+
+    public void setCashOnCard(double cashOnCard) {
+<span class="fc" id="L36">        this.cashOnCard = cashOnCard;</span>
+<span class="fc" id="L37">    }</span>
+
+    public void setCash(double cash) {
+<span class="fc" id="L40">        this.cash = cash;</span>
+<span class="fc" id="L41">    }</span>
+
+    public void setStatus(String status) {
+<span class="fc" id="L44">        this.status = status;</span>
+<span class="fc" id="L45">    }</span>
+
+    public void setName(String name) {
+<span class="fc" id="L48">        this.name = name;</span>
+<span class="fc" id="L49">    }</span>
+
+    public void setLastName(String lastName) {
+<span class="fc" id="L52">        this.lastName = lastName;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getName() {
+<span class="fc" id="L56">        return name;</span>
+    }
+
+    public String getLastName() {
+<span class="fc" id="L60">        return lastName;</span>
+    }
+
+    public double getCash() {
+<span class="fc" id="L64">        return cash;</span>
+    }
+
+    public String getStatus() {
+<span class="fc" id="L68">        return status;</span>
+    }
+
+    public Basket getBasket() {
+<span class="fc" id="L72">        return this.basket;</span>
+    }
+
+
+    public double getBonus() {
+<span class="fc" id="L77">        return bonus;</span>
+    }
+
+    public double getCashOnCard() {
+<span class="fc" id="L81">        return cashOnCard;</span>
+    }
+
+    public double getAllMoney() {
+<span class="fc" id="L85">        return bonus + cash + cashOnCard;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

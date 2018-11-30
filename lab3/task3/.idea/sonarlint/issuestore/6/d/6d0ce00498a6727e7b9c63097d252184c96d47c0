@@ -1,5 +1,0 @@
-
-äsquid:S1598"ÇThis file "PaymentMethod.java" should be located in "com\company\supermarket\cashDesk\paymentMethod" directory, not in "E:\GITHUB\JavaDev\lab3\task3\src\main\java\supermarket\cashDesk\paymentMethod".(Àí—üÿÿÿÿ
-Vsquid:S1118
-":Add a private constructor to hide the implicit public one.(’¬åşÿÿÿÿ
-wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Àí—üÿÿÿÿ
