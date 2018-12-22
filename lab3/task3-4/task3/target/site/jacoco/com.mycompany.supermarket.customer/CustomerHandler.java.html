@@ -13,8 +13,7 @@ public class CustomerHandler {
 
 <span class="fc" id="L14">    public CustomerHandler(Customer customer) {</span>
 <span class="fc" id="L15">        this.customer = customer;</span>
-
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L16">    }</span>
 
     public interface AddProductListener {
         void onAddProductToBasket(Product product, int amount);
@@ -25,53 +24,53 @@ public class CustomerHandler {
     }
 
     public void addProductToBasket(Product product, int amount,  AddProductListener callback) {
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (customer.getBasket().isEnoughMoney(product.getPrice(), customer.getAllMoney())) {</span>
-<span class="fc" id="L29">            customer.getBasket().addNewProductToBasket(product, customer.getStatus(), amount);</span>
-<span class="fc" id="L30">            callback.onAddProductToBasket(product, amount);</span>
-<span class="fc" id="L31">            Message.createMessageForAddProductToBasket(product, customer.getBasket(), customer);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (customer.getBasket().isEnoughMoney(product.getPrice(), customer.getAllMoney())) {</span>
+<span class="fc" id="L28">            customer.getBasket().addNewProductToBasket(product, customer.getStatus(), amount);</span>
+<span class="fc" id="L29">            callback.onAddProductToBasket(product, amount);</span>
+<span class="fc" id="L30">            Message.createMessageForAddProductToBasket(product, customer.getBasket(), customer);</span>
         } else {
-<span class="fc" id="L33">            Message.createMessageForAttemptToAddProductToBasket(product, customer.getBasket(), customer);</span>
+<span class="fc" id="L32">            Message.createMessageForAttemptToAddProductToBasket(product, customer.getBasket(), customer);</span>
         }
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L34">    }</span>
 
     public void layOutProductFromBasket(RemoveProductListener removeProductListener) {
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
-<span class="fc" id="L39">            Pair&lt;Product, Integer&gt; product = getProductFromBasket();</span>
-<span class="fc" id="L40">            customer.getBasket().getProducts().remove(product);</span>
-<span class="fc" id="L41">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
-<span class="fc" id="L42">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L38">            Pair&lt;Product, Integer&gt; product = getProductFromBasket();</span>
+<span class="fc" id="L39">            customer.getBasket().getProducts().remove(product);</span>
+<span class="fc" id="L40">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
+<span class="fc" id="L41">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
         }
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L43">    }</span>
 
     public void layOutProductFromBasket(Pair&lt;Product, Integer&gt; product, RemoveProductListener removeProductListener) {
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
-<span class="fc" id="L48">            customer.getBasket().removeProduct(product, customer.getStatus());</span>
-<span class="fc" id="L49">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
-<span class="fc" id="L50">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L47">            customer.getBasket().removeProduct(product, customer.getStatus());</span>
+<span class="fc" id="L48">            removeProductListener.onRemoveProductFromBusker(product.getKey(), product.getValue());</span>
+<span class="fc" id="L49">            Message.createMessageForRemoveProductFromBasket(product.getKey().getTitle(), customer.getBasket(), customer);</span>
         }
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L51">    }</span>
 
     public void returnAllProductFromBasket(RemoveProductListener removeProductListener) {
-<span class="fc bfc" id="L55" title="All 2 branches covered.">        while (!customer.getBasket().getProducts().isEmpty()) {</span>
-<span class="fc" id="L56">            layOutProductFromBasket(removeProductListener);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        while (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L55">            layOutProductFromBasket(removeProductListener);</span>
         }
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L57">    }</span>
 
     public void payForProducts(Bill bill) {
-<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
-<span class="fc" id="L62">            int amountProductInBasket = customer.getBasket().getProducts().size();</span>
-<span class="fc bfc" id="L63" title="All 2 branches covered.">            for (int i = 0; i &lt; amountProductInBasket; i++) {</span>
-<span class="fc" id="L64">                Pair&lt;Product, Integer&gt; product = customer.getBasket().getProducts().get(0);</span>
-<span class="fc" id="L65">                customer.getBasket().getProducts().remove(product);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L61">            int amountProductInBasket = customer.getBasket().getProducts().size();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            for (int i = 0; i &lt; amountProductInBasket; i++) {</span>
+<span class="fc" id="L63">                Pair&lt;Product, Integer&gt; product = customer.getBasket().getProducts().get(0);</span>
+<span class="fc" id="L64">                customer.getBasket().getProducts().remove(product);</span>
             }
-<span class="fc" id="L67">            PaymentMethod.pay(customer, bill);</span>
+<span class="fc" id="L66">            PaymentMethod.pay(customer, bill);</span>
         }
-<span class="fc" id="L69">    }</span>
+<span class="fc" id="L68">    }</span>
 
     private Pair&lt;Product, Integer&gt; getProductFromBasket() {
-<span class="fc" id="L72">        Random random = new Random();</span>
-<span class="fc" id="L73">        int id = random.nextInt(this.customer.getBasket().getProducts().size());</span>
-<span class="fc" id="L74">        return this.customer.getBasket().getProducts().get(id);</span>
+<span class="fc" id="L71">        Random random = new Random();</span>
+<span class="fc" id="L72">        int id = random.nextInt(this.customer.getBasket().getProducts().size());</span>
+<span class="fc" id="L73">        return this.customer.getBasket().getProducts().get(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

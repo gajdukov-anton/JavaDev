@@ -13,7 +13,6 @@ public class CustomerHandler {
 
     public CustomerHandler(Customer customer) {
         this.customer = customer;
-
     }
 
     public interface AddProductListener {

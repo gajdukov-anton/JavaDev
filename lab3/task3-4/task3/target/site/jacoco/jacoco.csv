@@ -5,7 +5,7 @@ task3,com.mycompany.supermarket.product.discount,Discount,0,27,0,4,0,9,0,5,0,3
 task3,com.mycompany.supermarket.cashDesk.bill,Bill,0,31,0,0,0,13,0,6,0,6
 task3,com.mycompany.supermarket.product,Product,8,56,0,2,4,18,2,10,2,9
 task3,com.mycompany.supermarket.customer,Customer,0,101,0,4,0,33,0,18,0,16
-task3,com.mycompany.supermarket.customer,CustomerHandler,0,185,1,11,0,33,1,12,0,7
+task3,com.mycompany.supermarket.customer,CustomerHandler,0,185,2,10,0,33,2,11,0,7
 task3,com.mycompany.supermarket,SupermarketHandler.new CashDesk.Callback() {...},0,83,0,4,0,13,0,6,0,4
 task3,com.mycompany.supermarket,SupermarketHandler.new CustomerHandler.RemoveProductListener() {...},0,12,0,0,0,3,0,2,0,2
 task3,com.mycompany.supermarket,SupermarketHandler.new CustomerHandler.RemoveProductListener() {...},0,12,0,0,0,3,0,2,0,2
@@ -13,7 +13,7 @@ task3,com.mycompany.supermarket,SupermarketHandler.new CustomerHandler.AddProduc
 task3,com.mycompany.supermarket,SupermarketHandler.new CashDesk.CloseListener() {...},0,14,0,0,0,3,0,2,0,2
 task3,com.mycompany.supermarket,SupermarketHandler.new CustomerHandler.RemoveProductListener() {...},0,12,0,0,0,3,0,2,0,2
 task3,com.mycompany.supermarket,SupermarketSimulator,5,65,0,2,2,15,0,3,0,2
-task3,com.mycompany.supermarket,SupermarketHandler,19,849,10,48,5,178,10,49,0,30
+task3,com.mycompany.supermarket,SupermarketHandler,8,860,9,49,3,180,9,50,0,30
 task3,com.mycompany.supermarket,Supermarket,0,92,0,4,0,27,0,14,0,12
 task3,com.mycompany.supermarket.info.report,Report,0,124,0,4,0,21,0,8,0,6
 task3,com.mycompany.supermarket.basket,Basket,0,120,0,10,0,23,0,13,0,8

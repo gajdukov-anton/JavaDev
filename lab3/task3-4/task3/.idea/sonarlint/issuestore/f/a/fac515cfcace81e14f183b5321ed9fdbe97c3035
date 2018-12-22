@@ -1,11 +1,11 @@
 
 T
-squid:S106 "9Replace this use of System.out or System.err by a logger.(Éî‚Œúÿÿÿÿ
+squid:S106""9Replace this use of System.out or System.err by a logger.(ß‰ÊÅúÿÿÿÿ
 O
 squid:S106!"9Replace this use of System.out or System.err by a logger.(èêìÖ
+T
+squid:S106%"9Replace this use of System.out or System.err by a logger.(‡é®ñúÿÿÿÿ
 O
 squid:S106#"9Replace this use of System.out or System.err by a logger.(î¦·Ä
 T
-squid:S106""9Replace this use of System.out or System.err by a logger.(ß‰ÊÅúÿÿÿÿ
-T
-squid:S106%"9Replace this use of System.out or System.err by a logger.(‡é®ñúÿÿÿÿ
+squid:S106 "9Replace this use of System.out or System.err by a logger.(Éî‚Œúÿÿÿÿ

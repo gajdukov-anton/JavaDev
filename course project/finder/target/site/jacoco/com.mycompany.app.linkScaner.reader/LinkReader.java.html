@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinkReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.linkScaner.reader</a> &gt; <span class="el_source">LinkReader.java</span></div><h1>LinkReader.java</h1><pre class="source lang-java linenums">package com.mycompany.app.linkScaner.reader;
+
+import com.mycompany.app.linkScaner.reader.ILinkReader;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class LinkReader implements ILinkReader {
+
+    private List&lt;String&gt; links;
+
+<span class="nc" id="L20">    public LinkReader() {</span>
+<span class="nc" id="L21">        links = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L23">    }</span>
+
+    public void readLinksFromFile(String [] filesName) {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        for(String fileName : filesName) {</span>
+<span class="nc" id="L27">            Path path = Paths.get(fileName);</span>
+<span class="nc" id="L28">            File file = new File(path.toString());</span>
+            try {
+<span class="nc" id="L30">                Document doc = Jsoup.parse(file, &quot;UTF-8&quot;);</span>
+<span class="nc" id="L31">                Elements linkElements = doc.getElementsByTag(&quot;a&quot;);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                for(Element item : linkElements) {</span>
+<span class="nc" id="L33">                    links.add(item.attr(&quot;href&quot;));</span>
+<span class="nc" id="L34">                    links.add(item.attr(&quot;src&quot;));</span>
+<span class="nc" id="L35">                }</span>
+<span class="nc" id="L36">            } catch (IOException exception) {</span>
+<span class="nc" id="L37">                exception.printStackTrace();</span>
+<span class="nc" id="L38">            }</span>
+        }
+
+<span class="nc" id="L41">    }</span>
+
+    public List&lt;String&gt; getLinks() {
+<span class="nc" id="L44">        return links;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

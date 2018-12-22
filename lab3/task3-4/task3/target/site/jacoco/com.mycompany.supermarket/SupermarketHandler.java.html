@@ -104,9 +104,9 @@ public class SupermarketHandler {
     public void removeCustomerFromSupermarket() {
 <span class="fc bfc" id="L105" title="All 4 branches covered.">        if (supermarket.isOpen() &amp;&amp; !supermarket.getCustomers().isEmpty()) {</span>
 <span class="fc" id="L106">            Customer customer = getCustomerFromSupermarket();</span>
-<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (!customer.getBasket().getProducts().isEmpty()) {</span>
-<span class="nc" id="L108">                CustomerHandler customerHandler = new CustomerHandler(customer);</span>
-<span class="pc" id="L109">                customerHandler.returnAllProductFromBasket(new CustomerHandler.RemoveProductListener() {</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">            if (!customer.getBasket().getProducts().isEmpty()) {</span>
+<span class="fc" id="L108">                CustomerHandler customerHandler = new CustomerHandler(customer);</span>
+<span class="fc" id="L109">                customerHandler.returnAllProductFromBasket(new CustomerHandler.RemoveProductListener() {</span>
                     @Override
                     public void onRemoveProductFromBusker(Product product, int amount) {
 <span class="fc" id="L112">                        returnProductToSupermarket(product, amount);</span>
