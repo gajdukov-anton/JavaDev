@@ -1,6 +1,7 @@
 package com.mycompany.app.finder.scannerhandler;
 
 import com.mycompany.app.finder.models.Link;
+import com.mycompany.app.finder.models.ProcessedLink;
 import com.mycompany.app.finder.models.ProcessedLinksContainer;
 import com.mycompany.app.finder.scanner.Scanner;
 import javafx.util.Pair;
@@ -12,12 +13,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class ScannerHandler implements IScannerHandler {
-    private List<Future<Link>> tasks = new ArrayList<>();
-    private List<Pair<String, String>> links = new ArrayList<>();
+    private List<Future<ProcessedLink>> tasks = new ArrayList<>();
+    private List<Link> links = new ArrayList<>();
     private ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer();
     private ExecutorService service;
 
-    public ScannerHandler(List<Pair<String, String>> links) {
+    public ScannerHandler(List<Link> links) {
         this.links = links;
         service = Executors.newFixedThreadPool(getMaxThreadAmount());
         processedLinksContainer = checkLinks(links);
@@ -27,12 +28,12 @@ public class ScannerHandler implements IScannerHandler {
         service = Executors.newFixedThreadPool(getMaxThreadAmount());
     }
 
-    public ProcessedLinksContainer scan(List<Pair<String, String>> links) {
+    public ProcessedLinksContainer scan(List<Link> links) {
         processedLinksContainer = checkLinks(links);
         return new ProcessedLinksContainer(processedLinksContainer);
     }
 
-    public ProcessedLinksContainer checkLinks(List<Pair<String, String>> links) {
+    public ProcessedLinksContainer checkLinks(List<Link> links) {
         ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer();
         for (int i = 0; i < links.size(); i++) {
             tasks.add(service.submit(new Scanner(links.get(i))));
@@ -40,7 +41,7 @@ public class ScannerHandler implements IScannerHandler {
         int i = 0;
         while (!tasks.isEmpty()) {
             if (tasks.get(i).isDone()) {
-                Link link = null;
+                ProcessedLink link = null;
                 try {
                     link = tasks.get(i).get();
                 } catch (Exception exception) {

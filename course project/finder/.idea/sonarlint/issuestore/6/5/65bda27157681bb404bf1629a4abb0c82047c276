@@ -1,7 +1,6 @@
 
-nsquid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(ÿø×Àúÿÿÿÿ8§³ìÕ÷,
-Ssquid:S1143+"5Remove this return statement from this finally block.(àóÑ·8±–¨²ý,
-Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ýÅŠ½8¸ª²ý,
+Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ýÅŠ½8¸ª²ý,
 [
-squid:S106'"9Replace this use of System.out or System.err by a logger.(ÅÐ€€øÿÿÿÿ8ççýÕ÷,
-Psquid:S1135&"2Complete the task associated to this TODO comment.(¹ü¥…8š¸ß§ø,
+squid:S106+"9Replace this use of System.out or System.err by a logger.(žªÕûùÿÿÿÿ8ççýÕ÷,
+Psquid:S1135*"2Complete the task associated to this TODO comment.(¹ü¥…8š¸ß§ø,
+nsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(ÿø×Àúÿÿÿÿ8§³ìÕ÷,

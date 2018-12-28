@@ -1,39 +1,30 @@
 package com.mycompany.app.finder.models;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 public class Link {
     private String url;
     private String source;
-    private String status;
-    private Integer statusCode;
-    private Boolean isNormal;
+    private String baseUrl;
 
-    public Link(String url, String source, String status, Integer statusCode, Boolean isBroken) {
-        this.url = url;
+    public Link(String url, String source) {
         this.source = source;
-        this.status = status;
-        this.statusCode = statusCode;
-        this.isNormal = isBroken;
+        this.url = url;
     }
 
-    public Integer getStatusCode() {
-        return statusCode;
-    }
-
-    public String getSource() {
-        return source;
+    public Link(String url, String source, String baseUrl) {
+        this.url = url;
+        this.source = url;
+        this.baseUrl = baseUrl;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public Boolean isNormal() {
-        return isNormal;
+    public String getSource() {
+        return source;
     }
 
-    public String getStatus() {
-        return status;
+    public String getBaseUrl() {
+        return baseUrl;
     }
 }

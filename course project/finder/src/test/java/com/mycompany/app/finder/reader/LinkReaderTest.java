@@ -1,5 +1,6 @@
 package com.mycompany.app.finder.reader;
 
+import com.mycompany.app.finder.models.Link;
 import javafx.util.Pair;
 import org.junit.Test;
 import org.junit.Assert;
@@ -12,23 +13,16 @@ public class LinkReaderTest {
 
     @Test
     public void readLinksFromFile() {
-        String[] files = new String[2];
-        files[0] = "testHtml.html";
-        files[1] = "testHtml.html";
-        List<Pair<String, String>> links = new ArrayList<>();
-        links.add(new Pair<>("#p1", "testHtml.html"));
-        links.add(new Pair<>("#p2", "testHtml.html"));
-        links.add(new Pair<>("#p3", "testHtml.html"));
-        links.add(new Pair<>("#p4", "testHtml.html"));
-        links.add(new Pair<>("#p1", "testHtml.html"));
-        links.add(new Pair<>("#p2", "testHtml.html"));
-        links.add(new Pair<>("#p3", "testHtml.html"));
-        links.add(new Pair<>("#p4", "testHtml.html"));
+        List<Pair<String, String>> files = new ArrayList<>();
+        files.add(new Pair<>("testFiles/testHtml.html", "www.google.com"));
 
         LinkReader linkReader = new LinkReader();
-        linkReader.readLinksFromFile(files);
-        Assert.assertEquals(8, linkReader.getLinks().size());
-        Assert.assertEquals(links, linkReader.getLinks());
+        List<Link> links = linkReader.readLinksFromFile(files);
+        Assert.assertEquals(4, links.size());
+
+        files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
+        links = linkReader.readLinksFromFile(files);
+        Assert.assertEquals(9, links.size());
     }
 
 

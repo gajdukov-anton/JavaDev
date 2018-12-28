@@ -1,2 +1,9 @@
 
-wsquid:S1450"TRemove the "links" field and declare it as a local variable in the relevant methods.(ˆ©û°øÿÿÿÿ8º™·²ý,
+Lsquid:S1068")Remove this unused "links" private field.(Í„¯üûÿÿÿÿ8·öö²ÿ,
+Psquid:S1068"2Remove this unused "scannerHandler" private field.(çþ…½8·öö²ÿ,
+isquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(Ä¶‰³8´»÷²ÿ,
+nsquid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(ðà§Ãøÿÿÿÿ8ßÈž²ÿ,
+nsquid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(ñËø·øÿÿÿÿ8ßÈž²ÿ,
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þž¬«8Ù“ö²ÿ,
+isquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(ãçýŽ8ßÈž²ÿ,
+wsquid:S1450"TRemove the "links" field and declare it as a local variable in the relevant methods.(Í„¯üûÿÿÿÿ8·öö²ÿ,

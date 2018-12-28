@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessedLinksContainer {
-    private List<Link> normalLinks = new ArrayList<>();
-    private List<Link> brokenLinks = new ArrayList<>();
+    private List<ProcessedLink> normalLinks = new ArrayList<>();
+    private List<ProcessedLink> brokenLinks = new ArrayList<>();
 
     public ProcessedLinksContainer() {
 
@@ -16,16 +16,16 @@ public class ProcessedLinksContainer {
         brokenLinks.addAll(processedLinksContainer.getBrokenLinks());
     }
 
-    public ProcessedLinksContainer(List<Link> brokenLinks, List<Link> normalLinks) {
+    public ProcessedLinksContainer(List<ProcessedLink> brokenLinks, List<ProcessedLink> normalLinks) {
         this.brokenLinks = brokenLinks;
         this.normalLinks = normalLinks;
     }
 
-    public List<Link> getBrokenLinks() {
+    public List<ProcessedLink> getBrokenLinks() {
         return brokenLinks;
     }
 
-    public List<Link> getNormalLinks() {
+    public List<ProcessedLink> getNormalLinks() {
         return normalLinks;
     }
 }

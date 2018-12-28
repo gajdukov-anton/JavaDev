@@ -1,5 +1,6 @@
 package com.mycompany.app.finder.reader;
 
+import com.mycompany.app.finder.models.Link;
 import javafx.util.Pair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,38 +16,41 @@ import java.util.List;
 
 public class LinkReader implements ILinkReader {
 
-    private List<Pair<String, String>> links;
+    private List<Link> links;
 
     public LinkReader() {
     }
 
     @Override
-    public List<Pair<String, String>> readLinksFromFile(String fileName) {
+    public List<Link> readLinksFromFile(List<Pair<String, String>> files) {
+
         links = new ArrayList<>();
-        Path path = Paths.get(fileName);
-        File file = new File(path.toString());
-        try {
-            Document doc = Jsoup.parse(file, "UTF-8");
-            Elements linkElements = doc.getElementsByTag("a");
-            for (Element item : linkElements) {
-                String link = item.attr("href");
-                addToLinks(link, fileName);
-                link = item.attr("src");
-                addToLinks(link, fileName);
+        for (Pair<String, String> item : files) {
+            String baseUrl = item.getValue();
+            Path path = Paths.get(item.getKey());
+            File file = new File(path.toString());
+            try {
+                Document doc = Jsoup.parse(file, "UTF-8");
+                Elements linkElements = doc.getElementsByTag("a");
+                for (Element element : linkElements) {
+                    String url = element.attr("href");
+                    addToLinks(url, item.getKey(), baseUrl);
+                    url = element.attr("src");
+                    addToLinks(url, item.getKey(), baseUrl);
+                }
+            } catch (FileNotFoundException exception) {
+                // TODO: 06.12.2018 сделать logger
+                System.out.println("File: " + files + " not found");
+            } catch (IOException exception) {
+                //  exception.printStackTrace();
             }
-        } catch (FileNotFoundException exception) {
-            // TODO: 06.12.2018 сделать logger
-            System.out.println("File: " + fileName + " not found");
-        } catch (IOException exception) {
-            //  exception.printStackTrace();
-        } finally {
-            return links;
         }
+        return links;
     }
 
-    private void addToLinks(String link, String fileName) {
-        if (!link.equals("")) {
-            links.add(new Pair<>(link, fileName));
+    private void addToLinks(String url, String fileName, String baseUrl) {
+        if (!url.equals("")) {
+            links.add(new Link(url, fileName, baseUrl));
         }
     }
 

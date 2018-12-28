@@ -1,10 +1,13 @@
 package com.mycompany.app.finder;
 
 import com.mycompany.app.finder.models.Link;
+import com.mycompany.app.finder.models.ProcessedLink;
 import com.mycompany.app.finder.models.ProcessedLinksContainer;
+import com.mycompany.app.finder.reader.LinkReader;
 import com.mycompany.app.finder.scannerhandler.ScannerHandler;
 import com.mycompany.app.finder.writer.LinkWriter;
 import javafx.util.Pair;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,16 +17,16 @@ public class ScannerHandlerTest {
 
     @Test
     public void testCase() {
-        ScannerHandler finder = new ScannerHandler();
-        List<Pair<String, String>> links = createLinks();
-        ProcessedLinksContainer processedLinksContainer = finder.scan(links);
-        LinkWriter linkWriter = new LinkWriter("file.csv");
-        linkWriter.createReportFile(processedLinksContainer);
+        List<Pair<String, String>> files = new ArrayList<>();
+        LinkReader linkReader = new LinkReader();
+        files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
+        files.add(new Pair<>("testFiles/Page2.html", "www.google.com"));
+        List<Link> links = linkReader.readLinksFromFile(files);
+        ScannerHandler scannerHandler = new ScannerHandler(links);
+        LinkWriter linkWriter = new LinkWriter("report.csv");
+        //Assert.assertEquals(1);
+        linkWriter.createReportFile(scannerHandler.getProcessedLinksContainer());
     }
-
-//    private ProcessedLinksContainer createProcessedLinkContainer() {
-//
-//    }
 
     private List<Pair<String, String>> createLinks() {
         List<Pair<String, String>> links = new ArrayList<>();
@@ -50,17 +53,17 @@ public class ScannerHandlerTest {
         return brokenLinks;
     }
 
-    private List<Link> createNormalLinks() {
-        List<Link> normalLinks = new ArrayList<>();
-        // normalLinks.add(new Link("https://yandex.ru/", "testHtml.html", 200, true));
+    private List<ProcessedLink> createNormalLinks() {
+        List<ProcessedLink> normalLinks = new ArrayList<>();
+        // normalLinks.add(new ProcessedLink("https://yandex.ru/", "testHtml.html", 200, true));
         return normalLinks;
     }
 
-    private boolean isListContainsSameLinks(List<Link> linksOne, List<Link> linksTwo) {
+    private boolean isListContainsSameLinks(List<ProcessedLink> linksOne, List<ProcessedLink> linksTwo) {
         if (linksOne.size() != linksTwo.size()) {
             return false;
         }
-        for (Link link : linksOne) {
+        for (ProcessedLink link : linksOne) {
             if (!linksTwo.contains(link)) {
                 return false;
             }
