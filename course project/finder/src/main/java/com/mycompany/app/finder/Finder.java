@@ -10,51 +10,36 @@ import javafx.util.Pair;
 import java.util.List;
 
 public class Finder implements IFinder {
-    private List<Pair<String, String>> files;
     private List<Link> links;
+    private List<String> sites;
+    private List<Pair<String, String>> files;
     private ProcessedLinksContainer processedLinks;
-    private LinkReader linkReader;
-    private LinkWriter linkWriter;
-    private ScannerHandler scannerHandler;
+    private LinkReader linkReader = new LinkReader();
+    private LinkWriter linkWriter = new LinkWriter();
+    private ScannerHandler scannerHandler = new ScannerHandler();
 
-    public Finder(List<Pair<String, String>> files){
+    public Finder(){
+    }
+
+    public void setFiles(List<Pair<String, String>> files) {
         this.files = files;
-        linkReader = new LinkReader();
-        linkWriter = new LinkWriter();
-        scannerHandler = new ScannerHandler();
+        links = linkReader.readLinksFromFiles(files);
+
+    }
+
+    public void setSites(List<String> sites) {
+        this.sites = sites;
+        links = linkReader.readLinksFromSites(sites);
     }
 
     @Override
     public ProcessedLinksContainer findBrokenLinks() {
-        links = linkReader.readLinksFromFile(files);
-       // processedLinks = scannerHandler.scan(links);
+        if (links != null) {
+            processedLinks = scannerHandler.scan(links);
+        }
         return processedLinks;
     }
 
-//    public Finder(String fileName) {
-//        this.fileName = fileName;
-//        linkReader = new LinkReader();
-//        scannerHandler = new ScannerHandler();
-//        linkWriter = new LinkWriter();
-//    }
-//
-//    public Finder() {
-//        linkReader = new LinkReader();
-//        scannerHandler = new ScannerHandler();
-//        linkWriter = new LinkWriter();
-//    }
-//
-//
-//    public void setFileName(String fileName) {
-//        this.fileName = fileName;
-//    }
-//
-//    @Override
-//    public ProcessedLinksContainer findBrokenLinks() {
-//        links = linkReader.readLinksFromFile(fileName);
-//        processedLinks = scannerHandler.scan(links);
-//        return processedLinks;
-//    }
 
     @Override
     public void createResultFile(String resultFileName) {

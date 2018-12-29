@@ -6,11 +6,9 @@ import javafx.util.Pair;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
-
 
 public class Scanner implements Callable<ProcessedLink>, IScanner {
 
@@ -21,41 +19,48 @@ public class Scanner implements Callable<ProcessedLink>, IScanner {
     }
 
     public ProcessedLink call() {
-        if (link != null ) {
-            Pair<Integer, String> statusInfo = getStatusInfo();
+        if (link != null) {
+            Pair<Integer, String> statusInfo = scanLink(link);
             return new ProcessedLink(link.getUrl(), link.getSource(), statusInfo.getValue(), statusInfo.getKey(), isGoodLink(statusInfo.getKey()));
         }
         return null;
     }
 
-    public boolean isBrokenLink(Pair<String, String> link) {
-        try {
-            URL url = new URL(link.getKey());
-            url.toURI();
-            return false;
-        } catch (Exception exception) {
+
+    public Pair<Integer, String> scanLink(Link link) {
+        //System.out.println(link.getUrl() + link.getSource());
+        String url = getAbsUrl(link);
+        if (url != null) {
+            Connection.Response response;
             try {
-                URL url = new URL(link.getValue() + '/' + link.getKey());
-                url.toURI();
-                return false;
-            } catch (Exception e) {
-                return true;
+                response = Jsoup.connect(url).execute();
+                //System.out.println(response.statusCode() + link.getUrl());
+                return new Pair<>(response.statusCode(), response.statusMessage());
+            } catch (HttpStatusException exception) {
+                //System.out.println(exception.getStatusCode() + link.getUrl());
+                return new Pair<>(exception.getStatusCode(), exception.getMessage());
+            } catch (IOException exception) {
+                return new Pair<>(0, exception.getMessage());
             }
+        } else {
+            return new Pair<>(0, "Incorrect url");
         }
     }
 
-    public Pair<Integer, String> getStatusInfo() {
-        Connection.Response response;
+    private String getAbsUrl(Link link) {
+       // System.out.println(link.getSource() + link.getUrl());
         try {
-            response = Jsoup.connect(link.getUrl()).execute();
-            System.out.println(response.statusCode());
-            return new Pair<>(response.statusCode(), response.statusMessage());
-        }catch (HttpStatusException exception) {
-            System.out.println(exception.getStatusCode());
-            return new Pair<>(exception.getStatusCode(), exception.getMessage());
-        } catch (IOException exception) {
-            exception.printStackTrace();
-            return null;
+            URL url = new URL(link.getUrl());
+            url.toURI();
+            return link.getUrl();
+        } catch (Exception exception) {
+            try {
+                URL url = new URL(link.getBaseUrl() + link.getUrl());
+                url.toURI();
+                return link.getBaseUrl() + link.getUrl();
+            } catch (Exception e) {
+                return null;
+            }
         }
     }
 

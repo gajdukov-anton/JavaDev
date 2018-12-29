@@ -2,12 +2,10 @@ package com.mycompany.app.finder;
 
 import com.mycompany.app.finder.models.Link;
 import com.mycompany.app.finder.models.ProcessedLink;
-import com.mycompany.app.finder.models.ProcessedLinksContainer;
 import com.mycompany.app.finder.reader.LinkReader;
 import com.mycompany.app.finder.scannerhandler.ScannerHandler;
 import com.mycompany.app.finder.writer.LinkWriter;
 import javafx.util.Pair;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,12 +14,25 @@ import java.util.List;
 public class ScannerHandlerTest {
 
     @Test
-    public void testCase() {
+    public void scanFilesTest() {
         List<Pair<String, String>> files = new ArrayList<>();
         LinkReader linkReader = new LinkReader();
         files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
+        files.add(new Pair<>("testFiles/Pagesdvmsv", "dkzlv"));
         files.add(new Pair<>("testFiles/Page2.html", "www.google.com"));
-        List<Link> links = linkReader.readLinksFromFile(files);
+        List<Link> links = linkReader.readLinksFromFiles(files);
+        ScannerHandler scannerHandler = new ScannerHandler(links);
+        LinkWriter linkWriter = new LinkWriter("report.csv");
+        //Assert.assertEquals(1);
+        linkWriter.createReportFile(scannerHandler.getProcessedLinksContainer());
+    }
+
+    @Test
+    public void scanSitesTest() {
+        List<String> sites = new ArrayList<>();
+        LinkReader linkReader = new LinkReader();
+        sites.add("http://links.testingcourse.ru/");
+        List<Link> links = linkReader.readLinksFromSites(sites);
         ScannerHandler scannerHandler = new ScannerHandler(links);
         LinkWriter linkWriter = new LinkWriter("report.csv");
         //Assert.assertEquals(1);

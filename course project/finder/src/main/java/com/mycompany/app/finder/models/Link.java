@@ -12,7 +12,7 @@ public class Link {
 
     public Link(String url, String source, String baseUrl) {
         this.url = url;
-        this.source = url;
+        this.source = source;
         this.baseUrl = baseUrl;
     }
 

@@ -1,6 +1,5 @@
 
-Asquid:S11489"#Use a logger to log this exception.(òçøì8â¦÷–ı,
-[
-squid:S1063"9Replace this use of System.out or System.err by a logger.(ˆ©Â¸øÿÿÿÿ8Âï–•ı,
-V
-squid:S1066"9Replace this use of System.out or System.err by a logger.(â˜ËÇ8Åà•ı,
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿«¬Åúÿÿÿÿ8şÓèÜÿ,
+isquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(ø‰šŒ8¼¨®Ûÿ,
+isquid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(ÉßËù8ÔË×Üÿ,
+nsquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(ØÑÑşÿÿÿÿ8¼¨®Ûÿ,

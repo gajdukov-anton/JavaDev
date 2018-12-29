@@ -17,13 +17,20 @@ public class LinkReaderTest {
         files.add(new Pair<>("testFiles/testHtml.html", "www.google.com"));
 
         LinkReader linkReader = new LinkReader();
-        List<Link> links = linkReader.readLinksFromFile(files);
+        List<Link> links = linkReader.readLinksFromFiles(files);
         Assert.assertEquals(4, links.size());
 
         files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
-        links = linkReader.readLinksFromFile(files);
+        links = linkReader.readLinksFromFiles(files);
         Assert.assertEquals(9, links.size());
     }
 
-
+    @Test
+    public void readLinksFromSite() {
+        List<String> sites = new ArrayList<>();
+        LinkReader linkReader = new LinkReader();
+        sites.add("http://links.testingcourse.ru/");
+        List<Link> links = linkReader.readLinksFromSites(sites);
+        Assert.assertEquals(6, links.size());
+    }
 }

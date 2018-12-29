@@ -6,5 +6,7 @@ import javafx.util.Pair;
 import java.util.List;
 
 public interface ILinkReader {
-    public List<Link> readLinksFromFile(List<Pair<String, String>> files);
+    public List<Link> readLinksFromFiles(List<Pair<String, String>> files);
+
+    public List<Link> readLinksFromSites(List<String> sites);
 }

@@ -23,9 +23,10 @@
     <session id="-998125890">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -33,33 +34,33 @@
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="61" />
+          <entry key="java" value="73" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="61" />
+          <entry key="JAVA" value="73" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="87" />
-          <entry key="java" value="8780" />
+          <entry key="java" value="10113" />
           <entry key="xml" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8780" />
+          <entry key="JAVA" value="10113" />
           <entry key="PLAIN_TEXT" value="87" />
           <entry key="XML" value="25" />
         </counts>
@@ -71,11 +72,81 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/ScannerHandlerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+            <state relative-caret-position="1086">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/LinkReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/FinderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/Finder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#2253#2254#0" expanded="true" />
+                <element signature="e#2313#2314#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/Link.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -90,75 +161,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="45" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="24" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="67" column="62" lean-forward="true" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+            <state relative-caret-position="255">
+              <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#966#967#0" expanded="true" />
-                <element signature="e#1042#1043#0" expanded="true" />
-                <element signature="e#2418#2419#0" expanded="true" />
-                <element signature="e#2463#2464#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/writer/LinkWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/ProcessedLinksContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/ProcessedLink.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="40" lean-forward="true" selection-start-column="40" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -166,17 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/IScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/IScannerHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            <state relative-caret-position="102">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,6 +200,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>`</find>
+      <find>isB</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -222,7 +225,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/linkScaner/LinkScannerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/linkScaner/IScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/IScanner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/IScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/TestScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/TestFinder/TestFinder.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/TestFinder/TestFinderTest.java" />
@@ -240,17 +242,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/IFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/FiтderHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/FinderHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/Link.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/LinkReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/ILinkReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/Finder.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/FinderTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/IScannerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/ScannerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/ILinkReader.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/ScannerHandlerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/IScanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/Link.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/Finder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/LinkReader.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/FinderTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java" />
       </list>
     </option>
   </component>
@@ -282,6 +285,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -434,14 +438,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546033180685" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546116828334" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -474,8 +477,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ScannerHandlerTest.testCase">
-    <configuration name="FinderTest.testCase1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FinderTest.scanFileTest">
+    <configuration name="FinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finder" />
       <extension name="coverage">
         <pattern>
@@ -485,13 +488,43 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mycompany.app.finder" />
       <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.FinderTest" />
-      <option name="METHOD_NAME" value="testCase1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FinderTest.scanFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mycompany.app.finder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mycompany.app.finder" />
+      <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.FinderTest" />
+      <option name="METHOD_NAME" value="scanFileTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkReaderTest.readLinksFromFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FinderTest.scanSiteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mycompany.app.finder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mycompany.app.finder" />
+      <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.FinderTest" />
+      <option name="METHOD_NAME" value="scanSiteTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkReaderTest.readLinksFromSite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finder" />
       <extension name="coverage">
         <pattern>
@@ -501,74 +534,42 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mycompany.app.finder.reader" />
       <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.reader.LinkReaderTest" />
-      <option name="METHOD_NAME" value="readLinksFromFile" />
+      <option name="METHOD_NAME" value="readLinksFromSite" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkWriterTest.createReportFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScannerHandlerTest.scanSitesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finder" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.mycompany.app.finder.writer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mycompany.app.finder.writer" />
-      <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.writer.LinkWriterTest" />
-      <option name="METHOD_NAME" value="createReportFile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScannerHandlerTest.testCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="finder" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mycompany.app.finder.scannerhandler.*" />
+          <option name="PATTERN" value="com.mycompany.app.finder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.mycompany.app.finder" />
       <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.ScannerHandlerTest" />
-      <option name="METHOD_NAME" value="testCase" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestFinderTest.TestCase1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="finder" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mycompany.app.finder.TestFinder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mycompany.app.finder.TestFinder" />
-      <option name="MAIN_CLASS_NAME" value="com.mycompany.app.finder.TestFinder.TestFinderTest" />
-      <option name="METHOD_NAME" value="TestCase1" />
+      <option name="METHOD_NAME" value="scanSitesTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ScannerHandlerTest.testCase" />
-      <item itemvalue="JUnit.TestFinderTest.TestCase1" />
-      <item itemvalue="JUnit.LinkWriterTest.createReportFile" />
-      <item itemvalue="JUnit.FinderTest.testCase1" />
-      <item itemvalue="JUnit.LinkReaderTest.readLinksFromFile" />
+      <item itemvalue="JUnit.FinderTest.scanSiteTest" />
+      <item itemvalue="JUnit.ScannerHandlerTest.scanSitesTest" />
+      <item itemvalue="JUnit.LinkReaderTest.readLinksFromSite" />
+      <item itemvalue="JUnit.FinderTest.scanFileTest" />
+      <item itemvalue="JUnit.FinderTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ScannerHandlerTest.testCase" />
-        <item itemvalue="JUnit.LinkReaderTest.readLinksFromFile" />
-        <item itemvalue="JUnit.FinderTest.testCase1" />
-        <item itemvalue="JUnit.LinkWriterTest.createReportFile" />
-        <item itemvalue="JUnit.TestFinderTest.TestCase1" />
+        <item itemvalue="JUnit.FinderTest.scanFileTest" />
+        <item itemvalue="JUnit.FinderTest" />
+        <item itemvalue="JUnit.FinderTest.scanSiteTest" />
+        <item itemvalue="JUnit.ScannerHandlerTest.scanSitesTest" />
+        <item itemvalue="JUnit.LinkReaderTest.readLinksFromSite" />
       </list>
     </recent_temporary>
   </component>
@@ -586,35 +587,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ScannerHandlerTest_testCase - 2018.12.22 at 16h 31m 07s.xml">
-      <configuration name="ScannerHandlerTest.testCase" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 20m 08s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerHandlerTest_testCase - 2018.12.22 at 16h 32m 41s.xml">
-      <configuration name="ScannerHandlerTest.testCase" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 20m 33s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FinderTest_testCase1 - 2018.12.23 at 20h 33m 42s.xml">
-      <configuration name="FinderTest.testCase1" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 21m 01s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LinkReaderTest_readLinksFromFile - 2018.12.28 at 23h 07m 13s.xml">
-      <configuration name="LinkReaderTest.readLinksFromFile" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 21m 42s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LinkReaderTest_readLinksFromFile - 2018.12.28 at 23h 14m 04s.xml">
-      <configuration name="LinkReaderTest.readLinksFromFile" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 22m 20s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LinkReaderTest_readLinksFromFile - 2018.12.28 at 23h 16m 17s.xml">
-      <configuration name="LinkReaderTest.readLinksFromFile" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 23m 48s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LinkReaderTest_readLinksFromFile - 2018.12.28 at 23h 17m 20s.xml">
-      <configuration name="LinkReaderTest.readLinksFromFile" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 24m 07s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LinkReaderTest_readLinksFromFile - 2018.12.28 at 23h 17m 24s.xml">
-      <configuration name="LinkReaderTest.readLinksFromFile" configurationId="JUnit" />
+    <history-entry file="FinderTest - 2018.12.29 at 23h 29m 40s.xml">
+      <configuration name="FinderTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerHandlerTest_testCase - 2018.12.29 at 00h 31m 45s.xml">
-      <configuration name="ScannerHandlerTest.testCase" configurationId="JUnit" />
+    <history-entry file="FinderTest - 2018.12.29 at 23h 29m 54s.xml">
+      <configuration name="FinderTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerHandlerTest_testCase - 2018.12.29 at 00h 38m 02s.xml">
-      <configuration name="ScannerHandlerTest.testCase" configurationId="JUnit" />
+    <history-entry file="FinderTest_scanFileTest - 2018.12.29 at 23h 49m 59s.xml">
+      <configuration name="FinderTest.scanFileTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -635,7 +636,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2181208" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.22147651" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -720,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/UrlParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="104" column="62" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/writer/ILinkWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -765,75 +756,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/ILinkReader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/writer/LinkWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="72" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-            <element signature="e#522#523#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/LinkReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/FinderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="238">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/Finder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/IScannerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/IScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/ProcessedLinksContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="68">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -844,37 +783,43 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/ProcessedLink.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="40" lean-forward="true" selection-start-column="40" selection-end-column="40" />
+          <caret column="40" selection-start-column="40" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/IScannerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
+        <state relative-caret-position="85">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/ILinkReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="45" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="24" selection-end-column="45" />
+        <state relative-caret-position="119">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/writer/LinkWriter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/UrlParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        <state relative-caret-position="306">
+          <caret line="60" column="50" lean-forward="true" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/IScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -886,24 +831,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="67" column="62" lean-forward="true" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+        <state relative-caret-position="185">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/models/Link.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scanner/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#2418#2419#0" expanded="true" />
-            <element signature="e#2463#2464#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#2253#2254#0" expanded="true" />
+            <element signature="e#2313#2314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/Finder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/reader/LinkReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/FinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/app/finder/ScannerHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        <state relative-caret-position="1086">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

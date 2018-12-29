@@ -4,8 +4,6 @@ import com.mycompany.app.finder.models.Link;
 import com.mycompany.app.finder.models.ProcessedLink;
 import com.mycompany.app.finder.models.ProcessedLinksContainer;
 import com.mycompany.app.finder.scanner.Scanner;
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -41,18 +39,18 @@ public class ScannerHandler implements IScannerHandler {
         int i = 0;
         while (!tasks.isEmpty()) {
             if (tasks.get(i).isDone()) {
-                ProcessedLink link = null;
+                ProcessedLink processedLink = null;
                 try {
-                    link = tasks.get(i).get();
+                    processedLink = tasks.get(i).get();
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
 
-                if (link != null) {
-                    if (link.isNormal()) {
-                        processedLinksContainer.getNormalLinks().add(link);
+                if (processedLink != null) {
+                    if (processedLink.isNormal()) {
+                        processedLinksContainer.getNormalLinks().add(processedLink);
                     } else {
-                        processedLinksContainer.getBrokenLinks().add(link);
+                        processedLinksContainer.getBrokenLinks().add(processedLink);
                     }
                 }
                 tasks.remove(i);

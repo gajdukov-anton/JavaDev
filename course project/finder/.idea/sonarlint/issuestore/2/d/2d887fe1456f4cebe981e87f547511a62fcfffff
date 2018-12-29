@@ -1,18 +1,18 @@
 
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÙîÃ†
-£%squid:RedundantThrowsDeclarationCheck!"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(¬àµíøÿÿÿÿ
-^squid:S2095j"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ó‰¶!
-gsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(¶æ€èıÿÿÿÿ
-T
-squid:S106w"9Replace this use of System.out or System.err by a logger.(ı™øøÿÿÿÿ
 _squid:S2095i"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(İÿÇ¨
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(¨Íàøÿÿÿÿ
-ssquid:S1450"WRemove the "response" field and declare it as a local variable in the relevant methods.(•Ëÿ¬ûÿÿÿÿ
-~"squid:ClassVariableVisibilityCheck"PMake code a static final constant or non-public and provide accessors if needed.(½±Ï©
-O
-squid:S106}"9Replace this use of System.out or System.err by a logger.(ÙîÃ†
+gsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(¶æ€èıÿÿÿÿ
+}"squid:ClassVariableVisibilityCheck"OMake str a static final constant or non-public and provide accessors if needed.(¼òšı
 nsquid:S37763"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(»¥š•ûÿÿÿÿ
 Xsquid:S1126U"AReplace this if-then-else statement by a single return statement.( °Àü
-}"squid:ClassVariableVisibilityCheck"OMake str a static final constant or non-public and provide accessors if needed.(¼òšı
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨Íàøÿÿÿÿ
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÙîÃ†
+~"squid:ClassVariableVisibilityCheck"PMake code a static final constant or non-public and provide accessors if needed.(½±Ï©
+T
+squid:S106w"9Replace this use of System.out or System.err by a logger.(ı™øøÿÿÿÿ
+£%squid:RedundantThrowsDeclarationCheck!"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(¬àµíøÿÿÿÿ
+ssquid:S1450"WRemove the "response" field and declare it as a local variable in the relevant methods.(•Ëÿ¬ûÿÿÿÿ
+^squid:S2095j"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ó‰¶!
+O
+squid:S106}"9Replace this use of System.out or System.err by a logger.(ÙîÃ†

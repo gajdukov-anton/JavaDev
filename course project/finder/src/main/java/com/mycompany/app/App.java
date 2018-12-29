@@ -9,6 +9,6 @@ public class App
     public static void main( String[] args )
     {
         //LinkReader linkReader = new LinkReader();
-        //linkReader.readLinksFromFile(args);
+        //linkReader.readLinksFromFiles(args);
     }
 }
