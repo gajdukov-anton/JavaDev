@@ -69,6 +69,9 @@ public class BrokenLinksFinder implements IBrokenLinksFinder {
         return outFileName;
     }
 
+    public String getBrokenLinksSourceType() {
+        return brokenLinksSourceType;
+    }
 
     private boolean getBrokenLinksSource() {
         switch (brokenLinksSourceType) {
@@ -112,11 +115,11 @@ public class BrokenLinksFinder implements IBrokenLinksFinder {
         List<Pair<String, String>> fileSource = new ArrayList<>();
         int counter = 0;
         String file = "";
-        while (!file.equals(BROKEN_LINKS_FILE_SOURCE)) {
+        while (counter < commandData.length && !file.equals(BROKEN_LINKS_FILE_SOURCE)) {
             file = commandData[counter];
             counter++;
         }
-        while (!commandData[counter].equals(OUT_SOURCE) && !commandData[counter + 1].equals(OUT_SOURCE)) {
+        while (counter < commandData.length && !commandData[counter].equals(OUT_SOURCE) && !commandData[counter + 1].equals(OUT_SOURCE)) {
             fileSource.add(new Pair<>(commandData[counter], commandData[counter + 1]));
             counter += 2;
         }

@@ -1,1 +1,17 @@
+com\mycompany\app\finder\FinderHandler.class
+com\mycompany\app\finder\models\Link.class
+com\mycompany\app\finder\scanner\IScanner.class
 com\mycompany\app\App.class
+com\mycompany\app\finder\Finder.class
+com\mycompany\app\finder\reader\ILinkReader.class
+com\mycompany\app\finder\brokenlinksfinder\IBrokenLinksFinder.class
+com\mycompany\app\finder\scanner\Scanner.class
+com\mycompany\app\finder\reader\LinkReader.class
+com\mycompany\app\finder\models\ProcessedLinksContainer.class
+com\mycompany\app\finder\brokenlinksfinder\BrokenLinksFinder.class
+com\mycompany\app\finder\IFinder.class
+com\mycompany\app\finder\models\ProcessedLink.class
+com\mycompany\app\finder\writer\ILinkWriter.class
+com\mycompany\app\finder\scannerhandler\IScannerHandler.class
+com\mycompany\app\finder\scannerhandler\ScannerHandler.class
+com\mycompany\app\finder\writer\LinkWriter.class

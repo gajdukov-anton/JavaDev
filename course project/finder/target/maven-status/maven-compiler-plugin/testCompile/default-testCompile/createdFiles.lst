@@ -1,1 +1,8 @@
-com\mycompany\app\AppTest.class
+com\mycompany\app\finder\reader\LinkReaderTest.class
+com\mycompany\app\finder\scanner\ScannerTest.class
+com\mycompany\app\finder\brokenlinksfinder\BrokenLinksFinderTest.class
+com\mycompany\app\finder\writer\LinkWriterTest.class
+com\mycompany\app\finder\FinderHandlerTest.class
+com\mycompany\app\BaseTestFunctions.class
+com\mycompany\app\finder\FinderTest.class
+com\mycompany\app\finder\scanner\ScannerHandlerTest.class

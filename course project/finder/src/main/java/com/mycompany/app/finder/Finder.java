@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Finder implements IFinder {
     private List<Link> links;
-    private ProcessedLinksContainer processedLinks;
+    private ProcessedLinksContainer processedLinks = new ProcessedLinksContainer();
     private LinkReader linkReader = new LinkReader();
     private LinkWriter linkWriter = new LinkWriter();
     private ScannerHandler scannerHandler = new ScannerHandler();
@@ -33,12 +33,15 @@ public class Finder implements IFinder {
 
     @Override
     public ProcessedLinksContainer findBrokenLinks() {
-        if (links != null) {
+        if (!links.isEmpty()) {
             processedLinks = scannerHandler.scan(links);
         }
         return processedLinks;
     }
 
+    public List<Link> getLinks() {
+        return links;
+    }
 
     @Override
     public void createResultFile(String resultFileName) {

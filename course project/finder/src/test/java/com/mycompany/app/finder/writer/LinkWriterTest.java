@@ -1,19 +1,22 @@
 package com.mycompany.app.finder.writer;
 
+import com.mycompany.app.BaseTestFunctions;
 import com.mycompany.app.finder.models.ProcessedLink;
 import com.mycompany.app.finder.models.ProcessedLinksContainer;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinkWriterTest {
+public class LinkWriterTest extends BaseTestFunctions {
 
     @Test
     public void createReportFile() {
-        LinkWriter linkWriter = new LinkWriter("testReport.csv");
+        LinkWriter linkWriter = new LinkWriter("resultFiles/linkWriterTest/testReport.csv");
         ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer(createBrokenLinkList(), createNormalLinkList());
         linkWriter.createReportFile(processedLinksContainer);
+        Assert.assertTrue(compareFile("resultFiles/linkWriterTest/testReport.csv", "resultFiles/linkWriterTest/result.csv"));
     }
 
     private List<ProcessedLink> createBrokenLinkList() {

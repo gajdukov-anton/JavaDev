@@ -1,5 +1,7 @@
 package com.mycompany.app.finder.models;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class Link {
     private String url;
     private String source;
@@ -27,5 +29,18 @@ public class Link {
 
     public String getBaseUrl() {
         return baseUrl;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Link link = (Link) obj;
+        return url.equals(link.url) && source.equals(link.source) && baseUrl.equals(link.baseUrl);
     }
 }

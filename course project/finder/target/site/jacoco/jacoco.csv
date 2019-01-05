@@ -1,12 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-finder,com.mycompany.app.finder.brokenlinksfinder,BrokenLinksFinder,101,260,27,25,27,53,27,14,4,9
+finder,com.mycompany.app.finder.brokenlinksfinder,BrokenLinksFinder,8,366,11,45,3,78,13,31,2,12
 finder,com.mycompany.app,App,44,0,6,0,14,0,5,0,2,0
-finder,com.mycompany.app.finder.scanner,Scanner,10,130,0,8,2,26,0,9,0,5
+finder,com.mycompany.app.finder.scanner,Scanner,0,138,0,8,0,26,0,9,0,5
 finder,com.mycompany.app.finder.scannerhandler,ScannerHandler,6,172,1,11,4,37,1,11,0,6
 finder,com.mycompany.app.finder.reader,LinkReader,1,200,1,11,1,41,1,10,0,5
 finder,com.mycompany.app.finder.models,ProcessedLink,0,33,0,0,0,12,0,6,0,6
 finder,com.mycompany.app.finder.models,ProcessedLinksContainer,0,63,0,0,0,14,0,5,0,5
-finder,com.mycompany.app.finder.models,Link,0,33,0,0,0,13,0,5,0,5
-finder,com.mycompany.app.finder,Finder,0,58,1,1,0,16,1,6,0,6
-finder,com.mycompany.app.finder,FinderHandler,39,64,8,6,9,13,8,4,2,3
+finder,com.mycompany.app.finder.models,Link,4,68,5,7,2,17,5,7,0,6
+finder,com.mycompany.app.finder,Finder,0,67,0,2,0,18,0,8,0,7
+finder,com.mycompany.app.finder,FinderHandler,0,66,1,9,0,19,1,9,0,5
 finder,com.mycompany.app.finder.writer,LinkWriter,3,69,0,2,2,15,0,5,0,4

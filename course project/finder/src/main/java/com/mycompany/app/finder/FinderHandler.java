@@ -13,10 +13,7 @@ public class FinderHandler {
 
     public void doCommand(String command) {
         commandData = command.split("( )+");
-        for (String str : commandData) {
-            System.out.println(str);
-        }
-        if (commandData.length > 0) {
+        if (command.length() > 0) {
             runCommand(commandData);
         } else {
             System.out.println("Please, set the command.");
@@ -25,9 +22,7 @@ public class FinderHandler {
     }
 
     public void doCommand(String[] commandData) {
-        for (String str : commandData) {
-            System.out.println(str);
-        }
+        this.commandData = commandData;
         if (commandData.length > 0) {
             runCommand(commandData);
         } else {

@@ -1,3 +1,0 @@
-"testFiles/1/Page1.html","javascript:alert('Hello');","0","Incorrect url"
-"testFiles/2/Page2.html","http://linejshfsuoifskgsugks.testingcourse.ru/page3.html","0","linejshfsuoifskgsugks.testingcourse.ru"
-"testFiles/2/Page2.html","http://links.testingcourse.ru/page.html","404","Not Found"

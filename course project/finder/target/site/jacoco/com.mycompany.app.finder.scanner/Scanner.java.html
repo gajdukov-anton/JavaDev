@@ -32,38 +32,36 @@ public class Scanner implements Callable&lt;ProcessedLink&gt;, IScanner {
 <span class="fc bfc" id="L32" title="All 2 branches covered.">        if (url != null) {</span>
             Connection.Response response;
             try {
-<span class="fc" id="L35">                response = Jsoup.connect(url)</span>
-<span class="fc" id="L36">                        .ignoreHttpErrors(true)</span>
-<span class="fc" id="L37">                        .execute();</span>
-<span class="fc" id="L38">                return new Pair&lt;&gt;(response.statusCode(), response.statusMessage());</span>
-<span class="nc" id="L39">            } catch (HttpStatusException exception) {</span>
-<span class="nc" id="L40">                return new Pair&lt;&gt;(exception.getStatusCode(), exception.getMessage());</span>
-<span class="fc" id="L41">            } catch (IOException exception) {</span>
-<span class="fc" id="L42">                return new Pair&lt;&gt;(0, exception.getMessage());</span>
+<span class="fc" id="L35">                response = Jsoup.connect(url).execute();</span>
+<span class="fc" id="L36">                return new Pair&lt;&gt;(response.statusCode(), response.statusMessage());</span>
+<span class="fc" id="L37">            } catch (HttpStatusException exception) {</span>
+<span class="fc" id="L38">                return new Pair&lt;&gt;(exception.getStatusCode(), exception.getMessage());</span>
+<span class="fc" id="L39">            } catch (IOException exception) {</span>
+<span class="fc" id="L40">                return new Pair&lt;&gt;(0, exception.getMessage());</span>
             }
         } else {
-<span class="fc" id="L45">            return new Pair&lt;&gt;(0, &quot;Incorrect url&quot;);</span>
+<span class="fc" id="L43">            return new Pair&lt;&gt;(0, &quot;Incorrect url&quot;);</span>
         }
     }
 
     public String getAbsUrl(Link link) {
         try {
-<span class="fc" id="L51">            URL url = new URL(link.getUrl());</span>
-<span class="fc" id="L52">            url.toURI();</span>
-<span class="fc" id="L53">            return link.getUrl();</span>
-<span class="fc" id="L54">        } catch (Exception exception) {</span>
+<span class="fc" id="L49">            URL url = new URL(link.getUrl());</span>
+<span class="fc" id="L50">            url.toURI();</span>
+<span class="fc" id="L51">            return link.getUrl();</span>
+<span class="fc" id="L52">        } catch (Exception exception) {</span>
             try {
-<span class="fc" id="L56">                URL url = new URL(link.getBaseUrl() + link.getUrl());</span>
-<span class="fc" id="L57">                url.toURI();</span>
-<span class="fc" id="L58">                return link.getBaseUrl() + link.getUrl();</span>
-<span class="fc" id="L59">            } catch (Exception e) {</span>
-<span class="fc" id="L60">                return null;</span>
+<span class="fc" id="L54">                URL url = new URL(link.getBaseUrl() + link.getUrl());</span>
+<span class="fc" id="L55">                url.toURI();</span>
+<span class="fc" id="L56">                return link.getBaseUrl() + link.getUrl();</span>
+<span class="fc" id="L57">            } catch (Exception e) {</span>
+<span class="fc" id="L58">                return null;</span>
             }
         }
     }
 
     private boolean isGoodLink(int statusCode) {
-<span class="fc bfc" id="L66" title="All 4 branches covered.">        return statusCode &gt;= 100 &amp;&amp; statusCode &lt; 300;</span>
+<span class="fc bfc" id="L64" title="All 4 branches covered.">        return statusCode &gt;= 100 &amp;&amp; statusCode &lt; 300;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

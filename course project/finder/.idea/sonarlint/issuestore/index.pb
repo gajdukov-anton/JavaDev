@@ -1,6 +1,4 @@
 
-\
-,src/test/java/com/mycompany/app/AppTest.java,7\7\776a31e69b82a4bf35c9f769151b0d0217fd9559
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 X
@@ -31,10 +29,6 @@ z
 Jsrc/main/java/com/mycompany/app/finder/models/ProcessedLinksContainer.java,9\5\950469b3ab748ef6b0800a146e87205fb74b0155
 q
 Asrc/test/java/com/mycompany/app/finder/writer/LinkWriterTest.java,4\7\4711b943927c1255d3eb7f5c72bb2d321f4b70b5
-g
-7src/test/java/com/mycompany/app/finder/ScannerTest.java,4\8\4864e1343c4cb6127a6ba4292ee8ab3420def618
-n
->src/test/java/com/mycompany/app/finder/ScannerHandlerTest.java,e\1\e10acedc407a8cb18fcdfebd88078c41b8ec47b3
 y
 Isrc/main/java/com/mycompany/app/finder/scannerhandler/ScannerHandler.java,7\9\79e8584aaf13b6d3216fd042ac670ad35a39e554
 f

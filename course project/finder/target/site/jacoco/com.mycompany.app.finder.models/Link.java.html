@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Link.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.finder.models</a> &gt; <span class="el_source">Link.java</span></div><h1>Link.java</h1><pre class="source lang-java linenums">package com.mycompany.app.finder.models;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class Link {
     private String url;
     private String source;
     private String baseUrl;
 
-<span class="fc" id="L8">    public Link(String url, String source) {</span>
-<span class="fc" id="L9">        this.source = source;</span>
-<span class="fc" id="L10">        this.url = url;</span>
-<span class="fc" id="L11">        this.baseUrl = source;</span>
-<span class="fc" id="L12">    }</span>
+<span class="fc" id="L10">    public Link(String url, String source) {</span>
+<span class="fc" id="L11">        this.source = source;</span>
+<span class="fc" id="L12">        this.url = url;</span>
+<span class="fc" id="L13">        this.baseUrl = source;</span>
+<span class="fc" id="L14">    }</span>
 
-<span class="fc" id="L14">    public Link(String url, String source, String baseUrl) {</span>
-<span class="fc" id="L15">        this.url = url;</span>
-<span class="fc" id="L16">        this.source = source;</span>
-<span class="fc" id="L17">        this.baseUrl = baseUrl;</span>
-<span class="fc" id="L18">    }</span>
+<span class="fc" id="L16">    public Link(String url, String source, String baseUrl) {</span>
+<span class="fc" id="L17">        this.url = url;</span>
+<span class="fc" id="L18">        this.source = source;</span>
+<span class="fc" id="L19">        this.baseUrl = baseUrl;</span>
+<span class="fc" id="L20">    }</span>
 
     public String getUrl() {
-<span class="fc" id="L21">        return url;</span>
+<span class="fc" id="L23">        return url;</span>
     }
 
     public String getSource() {
-<span class="fc" id="L25">        return source;</span>
+<span class="fc" id="L27">        return source;</span>
     }
 
     public String getBaseUrl() {
-<span class="fc" id="L29">        return baseUrl;</span>
+<span class="fc" id="L31">        return baseUrl;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (obj == this) {</span>
+<span class="nc" id="L37">            return true;</span>
+        }
+<span class="pc bpc" id="L39" title="2 of 4 branches missed.">        if (obj == null || obj.getClass() != this.getClass()) {</span>
+<span class="nc" id="L40">            return false;</span>
+        }
+
+<span class="fc" id="L43">        Link link = (Link) obj;</span>
+<span class="pc bpc" id="L44" title="2 of 6 branches missed.">        return url.equals(link.url) &amp;&amp; source.equals(link.source) &amp;&amp; baseUrl.equals(link.baseUrl);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
