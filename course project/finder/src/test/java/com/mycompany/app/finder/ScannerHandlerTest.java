@@ -6,10 +6,20 @@ import com.mycompany.app.finder.reader.LinkReader;
 import com.mycompany.app.finder.scannerhandler.ScannerHandler;
 import com.mycompany.app.finder.writer.LinkWriter;
 import javafx.util.Pair;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ScannerHandlerTest {
 
@@ -17,14 +27,13 @@ public class ScannerHandlerTest {
     public void scanFilesTest() {
         List<Pair<String, String>> files = new ArrayList<>();
         LinkReader linkReader = new LinkReader();
-        files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
+        files.add(new Pair<>("testFiles/1/Page1.html", "http://links.testingcourse.ru/"));
         files.add(new Pair<>("testFiles/Pagesdvmsv", "dkzlv"));
-        files.add(new Pair<>("testFiles/Page2.html", "www.google.com"));
         List<Link> links = linkReader.readLinksFromFiles(files);
         ScannerHandler scannerHandler = new ScannerHandler(links);
-        LinkWriter linkWriter = new LinkWriter("report.csv");
-        //Assert.assertEquals(1);
+        LinkWriter linkWriter = new LinkWriter("resultFiles/1/report.csv");
         linkWriter.createReportFile(scannerHandler.getProcessedLinksContainer());
+//        assertTrue(compareFile("resultFiles/1/result.csv", "resultFiles/1/report.csv"));
     }
 
     @Test
@@ -32,55 +41,51 @@ public class ScannerHandlerTest {
         List<String> sites = new ArrayList<>();
         LinkReader linkReader = new LinkReader();
         sites.add("http://links.testingcourse.ru/");
+        sites.add("http://links.testingcourse.ru/page1.html");
         List<Link> links = linkReader.readLinksFromSites(sites);
         ScannerHandler scannerHandler = new ScannerHandler(links);
-        LinkWriter linkWriter = new LinkWriter("report.csv");
-        //Assert.assertEquals(1);
+        LinkWriter linkWriter = new LinkWriter("resultFiles/2/report.csv");
         linkWriter.createReportFile(scannerHandler.getProcessedLinksContainer());
+       // assertTrue(compareFile("resultFiles/2/report.csv", "resultFiles/2/result.csv"));
     }
 
-    private List<Pair<String, String>> createLinks() {
-        List<Pair<String, String>> links = new ArrayList<>();
-        links.add(new Pair<>("http://links.testingcourse.ru/page12.html", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page13.html", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page15.html", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page1.html", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page3.html", "testHtml.html"));
-        links.add(new Pair<>("https://yandex.ru/", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page10.html", "testHtml.html"));
-        links.add(new Pair<>("http://links.testingcourse.ru/page17.html", "testHtml.html"));
-        return links;
-    }
+    private boolean compareFile(String filePathOne, String filePathTwo) {
+        Path pathOne = Paths.get(filePathOne);
+        Path pathTwo = Paths.get(filePathTwo);
+        File fileOne = new File(pathOne.toString());
+        File fileTwo = new File(pathTwo.toString());
 
-    private List<Pair<String, String>> createBrokenLinks() {
-        List<Pair<String, String>> brokenLinks = new ArrayList<>();
-        brokenLinks.add(new Pair<>("#p1", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p2", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p3", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p4", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p5", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p6", "testHtml.html"));
-        brokenLinks.add(new Pair<>("#p7", "testHtml.html"));
-        return brokenLinks;
-    }
-
-    private List<ProcessedLink> createNormalLinks() {
-        List<ProcessedLink> normalLinks = new ArrayList<>();
-        // normalLinks.add(new ProcessedLink("https://yandex.ru/", "testHtml.html", 200, true));
-        return normalLinks;
-    }
-
-    private boolean isListContainsSameLinks(List<ProcessedLink> linksOne, List<ProcessedLink> linksTwo) {
-        if (linksOne.size() != linksTwo.size()) {
-            return false;
-        }
-        for (ProcessedLink link : linksOne) {
-            if (!linksTwo.contains(link)) {
+        try {
+            FileReader fileReaderOne = new FileReader(fileOne);
+            BufferedReader readerOne = new BufferedReader(fileReaderOne);
+            FileReader fileReaderTwo = new FileReader(fileTwo);
+            BufferedReader readerTwo = new BufferedReader(fileReaderTwo);
+            String lineOne = readerOne.readLine();
+            String lineTwo = readerTwo.readLine();
+            if (!lineOne.equals(lineTwo)) {
                 return false;
             }
+            while (lineOne != null && lineTwo != null) {
+                lineOne = readerOne.readLine();
+                lineTwo = readerTwo.readLine();
+                if (lineOne != null && lineTwo != null) {
+                    if (!lineOne.equals(lineTwo)) {
+                        return false;
+                    }
+                }
+            }
+            if (lineOne != null || lineTwo != null) {
+                return false;
+            }
+
+        } catch (FileNotFoundException exception) {
+           // System.out.println("File: " + item.getKey() + " not found");
+        } catch (IOException exception) {
+            //  exception.printStackTrace();
         }
         return true;
     }
+
 
 
 }

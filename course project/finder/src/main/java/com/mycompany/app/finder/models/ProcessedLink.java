@@ -9,12 +9,12 @@ public class ProcessedLink {
     private Integer statusCode;
     private Boolean isNormal;
 
-    public ProcessedLink(String url, String source, String status, Integer statusCode, Boolean isBroken) {
+    public ProcessedLink(String url, String source, String status, Integer statusCode, Boolean isNormal) {
         this.url = url;
         this.source = source;
         this.status = status;
         this.statusCode = statusCode;
-        this.isNormal = isBroken;
+        this.isNormal = isNormal;
     }
 
     public Integer getStatusCode() {

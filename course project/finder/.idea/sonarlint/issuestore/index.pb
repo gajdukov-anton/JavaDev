@@ -7,8 +7,6 @@ X
 (src/main/java/com/mycompany/app/App.java,7\f\7fff48b1af3e1be8fec2792b6cdb7d26bdbe2ffc
 q
 Asrc/test/java/com/mycompany/app/finder/reader/LinkReaderTest.java,c\4\c49e1e994c04dbb3ffcf29374df17941eb7c5d8a
-e
-5src/main/java/com/mycompany/app/finder/UrlParser.java,2\d\2d887fe1456f4cebe981e87f547511a62fcfffff
 n
 >src/main/java/com/mycompany/app/finder/reader/ILinkReader.java,9\1\91e00518448b3efd4ed307e4dd8e182c9c574348
 m
@@ -45,3 +43,13 @@ i
 9src/main/java/com/mycompany/app/finder/FinderHandler.java,5\7\57362d12859c988f7fdc5262ab6ebf8760744a6d
 p
 @src/main/java/com/mycompany/app/finder/models/ProcessedLink.java,9\b\9bb7435420b25e41b5152dc0d7d366917891719e
+T
+$src/main/resources/config.properties,f\a\fac4e92d770a0a6287eaad0e53c4efa350987f47
+m
+=src/test/java/com/mycompany/app/finder/FinderHandlerTest.java,6\6\66beeb4264cddcd2ad6438752a87409332c43af6
+
+Osrc/main/java/com/mycompany/app/finder/brokenlinksfinder/BrokenLinksFinder.java,2\f\2fc9cca064aaeee290f68ef5643f7308ee3171f6
+ƒ
+Ssrc/test/java/com/mycompany/app/finder/brokenlinksfinder/BrokenLinksFinderTest.java,2\8\281e71c9f13aa0277e77fbf10c781551851ff873
+€
+Psrc/main/java/com/mycompany/app/finder/brokenlinksfinder/IBrokenLinksFinder.java,b\3\b3f5cf70bbbe9e663eb27c4220f50b5975947a78

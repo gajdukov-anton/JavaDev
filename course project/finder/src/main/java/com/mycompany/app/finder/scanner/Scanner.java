@@ -28,16 +28,13 @@ public class Scanner implements Callable<ProcessedLink>, IScanner {
 
 
     public Pair<Integer, String> scanLink(Link link) {
-        //System.out.println(link.getUrl() + link.getSource());
         String url = getAbsUrl(link);
         if (url != null) {
             Connection.Response response;
             try {
                 response = Jsoup.connect(url).execute();
-                //System.out.println(response.statusCode() + link.getUrl());
                 return new Pair<>(response.statusCode(), response.statusMessage());
             } catch (HttpStatusException exception) {
-                //System.out.println(exception.getStatusCode() + link.getUrl());
                 return new Pair<>(exception.getStatusCode(), exception.getMessage());
             } catch (IOException exception) {
                 return new Pair<>(0, exception.getMessage());
@@ -47,8 +44,7 @@ public class Scanner implements Callable<ProcessedLink>, IScanner {
         }
     }
 
-    private String getAbsUrl(Link link) {
-       // System.out.println(link.getSource() + link.getUrl());
+    public String getAbsUrl(Link link) {
         try {
             URL url = new URL(link.getUrl());
             url.toURI();
@@ -65,6 +61,6 @@ public class Scanner implements Callable<ProcessedLink>, IScanner {
     }
 
     private boolean isGoodLink(int statusCode) {
-        return statusCode >= 200 && statusCode < 300;
+        return statusCode >= 100 && statusCode < 300;
     }
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScannerHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.finder.scannerhandler</a> &gt; <span class="el_source">ScannerHandler.java</span></div><h1>ScannerHandler.java</h1><pre class="source lang-java linenums">package com.mycompany.app.finder.scannerhandler;
+
+import com.mycompany.app.finder.models.Link;
+import com.mycompany.app.finder.models.ProcessedLink;
+import com.mycompany.app.finder.models.ProcessedLinksContainer;
+import com.mycompany.app.finder.scanner.Scanner;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class ScannerHandler implements IScannerHandler {
+
+    private static final String PATH_TO_PROPERTIES = &quot;src/main/resources/config.properties&quot;;
+<span class="fc" id="L20">    private List&lt;Future&lt;ProcessedLink&gt;&gt; tasks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L21">    private List&lt;Link&gt; links = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">    private ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer();</span>
+    private ExecutorService service;
+
+<span class="fc" id="L25">    public ScannerHandler(List&lt;Link&gt; links) {</span>
+<span class="fc" id="L26">        this.links = links;</span>
+<span class="fc" id="L27">        service = Executors.newFixedThreadPool(getMaxThreadAmount());</span>
+<span class="fc" id="L28">        processedLinksContainer = checkLinks(links);</span>
+<span class="fc" id="L29">    }</span>
+
+<span class="fc" id="L31">    public ScannerHandler() {</span>
+<span class="fc" id="L32">        service = Executors.newFixedThreadPool(getMaxThreadAmount());</span>
+<span class="fc" id="L33">    }</span>
+
+    public ProcessedLinksContainer scan(List&lt;Link&gt; links) {
+<span class="fc" id="L36">        processedLinksContainer = checkLinks(links);</span>
+<span class="fc" id="L37">        return new ProcessedLinksContainer(processedLinksContainer);</span>
+    }
+
+    public ProcessedLinksContainer checkLinks(List&lt;Link&gt; links) {
+<span class="fc" id="L41">        ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (int i = 0; i &lt; links.size(); i++) {</span>
+<span class="fc" id="L43">            tasks.add(service.submit(new Scanner(links.get(i))));</span>
+        }
+<span class="fc" id="L45">        int i = 0;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        while (!tasks.isEmpty()) {</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            if (tasks.get(i).isDone()) {</span>
+<span class="fc" id="L48">                ProcessedLink processedLink = null;</span>
+                try {
+<span class="fc" id="L50">                    processedLink = tasks.get(i).get();</span>
+<span class="nc" id="L51">                } catch (Exception exception) {</span>
+<span class="nc" id="L52">                    exception.printStackTrace();</span>
+<span class="fc" id="L53">                }</span>
+
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">                if (processedLink != null) {</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">                    if (processedLink.isNormal()) {</span>
+<span class="fc" id="L57">                        processedLinksContainer.getNormalLinks().add(processedLink);</span>
+                    } else {
+<span class="fc" id="L59">                        processedLinksContainer.getBrokenLinks().add(processedLink);</span>
+                    }
+                }
+<span class="fc" id="L62">                tasks.remove(i);</span>
+            }
+<span class="fc" id="L64">            i++;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (i &gt;= tasks.size()) {</span>
+<span class="fc" id="L66">                i = 0;</span>
+            }
+        }
+<span class="fc" id="L69">        service.shutdown();</span>
+<span class="fc" id="L70">        return processedLinksContainer;</span>
+    }
+
+   public ProcessedLinksContainer getProcessedLinksContainer() {
+<span class="fc" id="L74">        return processedLinksContainer;</span>
+   }
+
+
+    private int getMaxThreadAmount() {
+        FileInputStream fileInputStream;
+<span class="fc" id="L80">        Properties properties = new Properties();</span>
+        try {
+<span class="fc" id="L82">            fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);</span>
+<span class="fc" id="L83">            properties.load(fileInputStream);</span>
+<span class="fc" id="L84">            return Integer.valueOf(properties.getProperty(&quot;amountThread&quot;));</span>
+<span class="nc" id="L85">        } catch (IOException e) {</span>
+<span class="nc" id="L86">            return 1;</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

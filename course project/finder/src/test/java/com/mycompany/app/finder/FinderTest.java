@@ -16,6 +16,9 @@ public class FinderTest {
         Finder finder = new Finder();
         List<String> sites = new ArrayList<>();
         sites.add("http://links.testingcourse.ru/");
+        sites.add("http://linkjgjhs.testingcourse.ru/");
+        sites.add("http://links.testingcourse.ru/");
+
         finder.setSites(sites);
         ProcessedLinksContainer processedLinksContainer = finder.findBrokenLinks();
         finder.createResultFile("report1.csv");
@@ -26,12 +29,25 @@ public class FinderTest {
     public void scanFileTest() {
         Finder finder = new Finder();
         List<Pair<String,String>> files = new ArrayList<>();
-        files.add(new Pair<>("testFiles/Page1.html", "http://links.testingcourse.ru"));
-        files.add(new Pair<>("testFiles/Page2.html", "http://links.testingcourse.ru"));
+        files.add(new Pair<>("testFiles/1/Page1.html", "http://links.testingcourse.ru"));
+        files.add(new Pair<>("testFiles/2/Page2.html", "http://links.testingcourse.ru"));
+        files.add(new Pair<>("testFiles/Page3.html", "http://links.testingcourse.ru"));
 
         finder.setFiles(files);
         ProcessedLinksContainer processedLinksContainer = finder.findBrokenLinks();
         finder.createResultFile("report2.csv");
+    }
+
+    @Test
+    public void scanBrokenFileTest() {
+        Finder finder = new Finder();
+        List<Pair<String,String>> files = new ArrayList<>();
+        files.add(new Pair<>("testFiles/1/Phsdhdhage1.html", "http://links.testingcourse.ru"));
+        files.add(new Pair<>("testFiles/2/Pshshshage2.html", "http://links.testingcourse.ru"));
+
+        finder.setFiles(files);
+        ProcessedLinksContainer processedLinksContainer = finder.findBrokenLinks();
+        finder.createResultFile("report3.csv");
     }
 
 }

@@ -15,14 +15,12 @@ public class LinkReaderTest {
     public void readLinksFromFile() {
         List<Pair<String, String>> files = new ArrayList<>();
         files.add(new Pair<>("testFiles/testHtml.html", "www.google.com"));
-
         LinkReader linkReader = new LinkReader();
         List<Link> links = linkReader.readLinksFromFiles(files);
-        Assert.assertEquals(4, links.size());
-
-        files.add(new Pair<>("testFiles/Page1.html", "www.google.com"));
+        Assert.assertEquals(0, links.size());
+        files.add(new Pair<>("testFiles/1/Page1.html", "www.google.com"));
         links = linkReader.readLinksFromFiles(files);
-        Assert.assertEquals(9, links.size());
+        Assert.assertEquals(6, links.size());
     }
 
     @Test
@@ -30,7 +28,10 @@ public class LinkReaderTest {
         List<String> sites = new ArrayList<>();
         LinkReader linkReader = new LinkReader();
         sites.add("http://links.testingcourse.ru/");
+        sites.add("http://links.testingcourse.ru/page1.html");
+        sites.add("dssdvsl");
+        sites.add("http://links.testingcourse.ru/page111.html");
         List<Link> links = linkReader.readLinksFromSites(sites);
-        Assert.assertEquals(6, links.size());
+        Assert.assertEquals(11, links.size());
     }
 }

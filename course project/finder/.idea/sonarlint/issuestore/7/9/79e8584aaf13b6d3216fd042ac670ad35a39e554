@@ -1,6 +1,5 @@
 
-Lsquid:S1068")Remove this unused "links" private field.(Íã·Þÿÿÿÿÿ8ç‚Áñû,
-Asquid:S1148."#Use a logger to log this exception.(òçøì8Åë¬Ùÿ,
-psquid:S3776""RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(›¹‘ž8Åë¬Ùÿ,
-Wsquid:S3400H"9Remove this method and declare a constant for this value.(ž›…Ú8öþöñû,
-ysquid:HiddenFieldCheck#"KRename "processedLinksContainer" which hides the field declared at line 16.(àÇ¥ªøÿÿÿÿ8™á òû,
+Asquid:S11484"#Use a logger to log this exception.(òçøì8Åë¬Ùÿ,
+psquid:S3776("RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(›¹‘ž8Åë¬Ùÿ,
+Lsquid:S1068")Remove this unused "links" private field.(Íã·Þÿÿÿÿÿ8ç‚Áñû,
+ysquid:HiddenFieldCheck)"KRename "processedLinksContainer" which hides the field declared at line 22.(àÇ¥ªøÿÿÿÿ8™á òû,

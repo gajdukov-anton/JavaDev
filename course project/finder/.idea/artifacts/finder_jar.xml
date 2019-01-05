@@ -3,9 +3,10 @@
     <output-path>$PROJECT_DIR$/classes/artifacts/finder_jar</output-path>
     <root id="archive" name="finder.jar">
       <element id="module-output" name="finder" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/au/com/bytecode/opencsv/2.4/opencsv-2.4.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

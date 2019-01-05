@@ -1,66 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scanner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.finder.scanner</a> &gt; <span class="el_source">Scanner.java</span></div><h1>Scanner.java</h1><pre class="source lang-java linenums">package com.mycompany.app.finder.scanner;
 
-import com.mycompany.app.finder.Link;
+import com.mycompany.app.finder.models.Link;
+import com.mycompany.app.finder.models.ProcessedLink;
 import javafx.util.Pair;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 
+public class Scanner implements Callable&lt;ProcessedLink&gt;, IScanner {
 
-public class Scanner implements Callable&lt;Link&gt;, IScanner {
+    private Link link;
 
-    private Pair&lt;String, String&gt; link;
+<span class="fc" id="L17">    public Scanner(Link link) {</span>
+<span class="fc" id="L18">        this.link = link;</span>
+<span class="fc" id="L19">    }</span>
 
-<span class="fc" id="L18">    public Scanner(Pair&lt;String, String&gt; link) {</span>
-<span class="fc" id="L19">        this.link = link;</span>
-<span class="fc" id="L20">    }</span>
-
-    public Link call() {
-<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (link != null ) {</span>
-<span class="fc" id="L24">            int statusCode = getStatusCode();</span>
-<span class="fc" id="L25">            System.out.println(&quot;Zopa: &quot; + statusCode);</span>
-<span class="fc" id="L26">            return new Link(link.getKey(), link.getValue(), statusCode, isGoodLink(statusCode));</span>
+    public ProcessedLink call() {
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (link != null) {</span>
+<span class="fc" id="L23">            Pair&lt;Integer, String&gt; statusInfo = scanLink(link);</span>
+<span class="fc" id="L24">            return new ProcessedLink(link.getUrl(), link.getSource(), statusInfo.getValue(), statusInfo.getKey(), isGoodLink(statusInfo.getKey()));</span>
         }
-<span class="nc" id="L28">        return null;</span>
+<span class="fc" id="L26">        return null;</span>
     }
 
-    public boolean isBrokenLink(Pair&lt;String, String&gt; link) {
-        try {
-<span class="nc" id="L33">            URL url = new URL(link.getKey());</span>
-<span class="nc" id="L34">            url.toURI();</span>
-<span class="nc" id="L35">            return false;</span>
-<span class="nc" id="L36">        } catch (Exception exception) {</span>
+
+    public Pair&lt;Integer, String&gt; scanLink(Link link) {
+<span class="fc" id="L31">        String url = getAbsUrl(link);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (url != null) {</span>
+            Connection.Response response;
             try {
-<span class="nc" id="L38">                URL url = new URL(link.getValue() + '/' + link.getKey());</span>
-<span class="nc" id="L39">                url.toURI();</span>
-<span class="nc" id="L40">                return false;</span>
-<span class="nc" id="L41">            } catch (Exception e) {</span>
-<span class="nc" id="L42">                return true;</span>
+<span class="fc" id="L35">                response = Jsoup.connect(url)</span>
+<span class="fc" id="L36">                        .ignoreHttpErrors(true)</span>
+<span class="fc" id="L37">                        .execute();</span>
+<span class="fc" id="L38">                return new Pair&lt;&gt;(response.statusCode(), response.statusMessage());</span>
+<span class="nc" id="L39">            } catch (HttpStatusException exception) {</span>
+<span class="nc" id="L40">                return new Pair&lt;&gt;(exception.getStatusCode(), exception.getMessage());</span>
+<span class="fc" id="L41">            } catch (IOException exception) {</span>
+<span class="fc" id="L42">                return new Pair&lt;&gt;(0, exception.getMessage());</span>
+            }
+        } else {
+<span class="fc" id="L45">            return new Pair&lt;&gt;(0, &quot;Incorrect url&quot;);</span>
+        }
+    }
+
+    public String getAbsUrl(Link link) {
+        try {
+<span class="fc" id="L51">            URL url = new URL(link.getUrl());</span>
+<span class="fc" id="L52">            url.toURI();</span>
+<span class="fc" id="L53">            return link.getUrl();</span>
+<span class="fc" id="L54">        } catch (Exception exception) {</span>
+            try {
+<span class="fc" id="L56">                URL url = new URL(link.getBaseUrl() + link.getUrl());</span>
+<span class="fc" id="L57">                url.toURI();</span>
+<span class="fc" id="L58">                return link.getBaseUrl() + link.getUrl();</span>
+<span class="fc" id="L59">            } catch (Exception e) {</span>
+<span class="fc" id="L60">                return null;</span>
             }
         }
     }
 
-    public int getStatusCode() {
-        Connection.Response response;
-        try {
-<span class="fc" id="L50">            response = Jsoup.connect(link.getKey()).execute();</span>
-<span class="fc" id="L51">            System.out.println(response.statusCode());</span>
-<span class="fc" id="L52">            return response.statusCode();</span>
-<span class="fc" id="L53">        }catch (HttpStatusException exception) {</span>
-<span class="fc" id="L54">            System.out.println(exception.getStatusCode());</span>
-<span class="fc" id="L55">            return exception.getStatusCode();</span>
-<span class="fc" id="L56">        } catch (IOException exception) {</span>
-<span class="fc" id="L57">            exception.printStackTrace();</span>
-<span class="fc" id="L58">            return 0;</span>
-        }
-    }
-
     private boolean isGoodLink(int statusCode) {
-<span class="pc bpc" id="L63" title="2 of 4 branches missed.">        return statusCode &gt;= 200 &amp;&amp; statusCode &lt; 300;</span>
+<span class="fc bfc" id="L66" title="All 4 branches covered.">        return statusCode &gt;= 100 &amp;&amp; statusCode &lt; 300;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

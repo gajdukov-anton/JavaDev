@@ -8,6 +8,7 @@ public class Link {
     public Link(String url, String source) {
         this.source = source;
         this.url = url;
+        this.baseUrl = source;
     }
 
     public Link(String url, String source, String baseUrl) {

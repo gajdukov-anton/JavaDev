@@ -32,7 +32,7 @@ public class LinkReader implements ILinkReader {
             File file = new File(path.toString());
             try {
                 Document doc = Jsoup.parse(file, "UTF-8");
-                System.out.println(item.getKey() + item.getValue());
+                //System.out.println(item.getKey() + item.getValue());
 
                 getLinksFromDocument(links, doc, item.getKey(), item.getValue());
             } catch (FileNotFoundException exception) {
@@ -54,8 +54,8 @@ public class LinkReader implements ILinkReader {
                 getLinksFromDocument(links, doc, site, site);
             } catch (HttpStatusException e) {
                 System.out.println("Input link: " + site + " was damaged. Error code: " + e.getStatusCode());
-            } catch (IOException e) {
-
+            } catch (Exception e) {
+                System.out.println("Input link: " + site + " was damaged." );
             }
         }
         return links;
@@ -75,9 +75,7 @@ public class LinkReader implements ILinkReader {
             }
             addToLinks(url, resource, baseUrl);
         }
-        for (Link link : links) {
-            System.out.println(link.getUrl() + link.getBaseUrl());
-        }
+
     }
 
     private void addToLinks(String url, String fileName, String baseUrl) {

@@ -1,0 +1,5 @@
+http://links.testingcourse.ru/page6.html - ссылка на данный url
+http://links.testingcourse.ru - базовый url
+http://links.testingcourse.ru/page9.html - работает
+http://links.testingcourse.ru/page7.html - работает
+tel:88001112233 - не работает

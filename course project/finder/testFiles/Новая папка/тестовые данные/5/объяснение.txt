@@ -1,0 +1,5 @@
+http://links.testingcourse.ru/page7.html - ссылка на данный url
+http://links.testingcourse.ru - базовый url
+http://links.testingcourse.ru/page10.html - работает
+http://links.testingcourse.ru/page11.html - не работает
+http://links.testingcourse.ru/page1.html - работает

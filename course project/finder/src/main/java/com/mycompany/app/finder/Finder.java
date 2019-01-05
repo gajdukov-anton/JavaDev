@@ -11,8 +11,6 @@ import java.util.List;
 
 public class Finder implements IFinder {
     private List<Link> links;
-    private List<String> sites;
-    private List<Pair<String, String>> files;
     private ProcessedLinksContainer processedLinks;
     private LinkReader linkReader = new LinkReader();
     private LinkWriter linkWriter = new LinkWriter();
@@ -22,14 +20,15 @@ public class Finder implements IFinder {
     }
 
     public void setFiles(List<Pair<String, String>> files) {
-        this.files = files;
         links = linkReader.readLinksFromFiles(files);
-
     }
 
     public void setSites(List<String> sites) {
-        this.sites = sites;
         links = linkReader.readLinksFromSites(sites);
+    }
+
+    public ProcessedLinksContainer getProcessedLinks() {
+        return processedLinks;
     }
 
     @Override

@@ -4,13 +4,19 @@ import com.mycompany.app.finder.models.Link;
 import com.mycompany.app.finder.models.ProcessedLink;
 import com.mycompany.app.finder.models.ProcessedLinksContainer;
 import com.mycompany.app.finder.scanner.Scanner;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class ScannerHandler implements IScannerHandler {
+
+    private static final String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
     private List<Future<ProcessedLink>> tasks = new ArrayList<>();
     private List<Link> links = new ArrayList<>();
     private ProcessedLinksContainer processedLinksContainer = new ProcessedLinksContainer();
@@ -60,6 +66,7 @@ public class ScannerHandler implements IScannerHandler {
                 i = 0;
             }
         }
+        service.shutdown();
         return processedLinksContainer;
     }
 
@@ -69,7 +76,15 @@ public class ScannerHandler implements IScannerHandler {
 
 
     private int getMaxThreadAmount() {
-        return 3;
+        FileInputStream fileInputStream;
+        Properties properties = new Properties();
+        try {
+            fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
+            properties.load(fileInputStream);
+            return Integer.valueOf(properties.getProperty("amountThread"));
+        } catch (IOException e) {
+            return 1;
+        }
     }
 
 }

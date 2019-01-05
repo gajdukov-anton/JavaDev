@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinkReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.finder.reader</a> &gt; <span class="el_source">LinkReader.java</span></div><h1>LinkReader.java</h1><pre class="source lang-java linenums">package com.mycompany.app.finder.reader;
 
+import com.mycompany.app.finder.models.Link;
 import javafx.util.Pair;
+import org.jsoup.Connection;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,46 +18,71 @@ import java.util.List;
 
 public class LinkReader implements ILinkReader {
 
-    private List&lt;Pair&lt;String, String&gt;&gt; links;
+    private List&lt;Link&gt; links;
 
-<span class="fc" id="L20">    public LinkReader() {</span>
-<span class="fc" id="L21">        links = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L23">    public LinkReader() {</span>
+<span class="fc" id="L24">    }</span>
 
     @Override
-    public void readLinksFromFile(String [] filesName) {
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        for(String fileName : filesName) {</span>
-<span class="fc" id="L27">            Path path = Paths.get(fileName);</span>
-<span class="fc" id="L28">            File file = new File(path.toString());</span>
+    public List&lt;Link&gt; readLinksFromFiles(List&lt;Pair&lt;String, String&gt;&gt; files) {
+<span class="fc" id="L28">        links = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for (Pair&lt;String, String&gt; item : files) {</span>
+<span class="fc" id="L30">            String baseUrl = item.getValue();</span>
+<span class="fc" id="L31">            Path path = Paths.get(item.getKey());</span>
+<span class="fc" id="L32">            File file = new File(path.toString());</span>
             try {
-<span class="fc" id="L30">                Document doc = Jsoup.parse(file, &quot;UTF-8&quot;);</span>
-<span class="fc" id="L31">                Elements linkElements = doc.getElementsByTag(&quot;a&quot;);</span>
-<span class="fc bfc" id="L32" title="All 2 branches covered.">                for(Element item : linkElements) {</span>
-<span class="fc" id="L33">                    String link = item.attr(&quot;href&quot;);</span>
-<span class="fc" id="L34">                    addToLinks(link, fileName);</span>
-<span class="fc" id="L35">                    link = item.attr(&quot;src&quot;);</span>
-<span class="fc" id="L36">                    addToLinks(link, fileName);</span>
-<span class="fc" id="L37">                }</span>
-<span class="nc" id="L38">            } catch (FileNotFoundException exception) {</span>
-                // TODO: 06.12.2018 сделать logger
-<span class="nc" id="L40">                System.out.println(&quot;File: &quot; + fileName + &quot; not found&quot;);</span>
-            }
-<span class="nc" id="L42">            catch (IOException exception) {</span>
-              //  exception.printStackTrace();
-<span class="pc" id="L44">            }</span>
-        }
+<span class="fc" id="L34">                Document doc = Jsoup.parse(file, &quot;UTF-8&quot;);</span>
+                //System.out.println(item.getKey() + item.getValue());
 
-<span class="fc" id="L47">    }</span>
-
-    private void addToLinks(String link, String fileName) {
-<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (!link.equals(&quot;&quot;)) {</span>
-<span class="fc" id="L51">            links.add(new Pair&lt;&gt;(link, fileName));</span>
-        }
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L37">                getLinksFromDocument(links, doc, item.getKey(), item.getValue());</span>
+<span class="fc" id="L38">            } catch (FileNotFoundException exception) {</span>
+<span class="fc" id="L39">                System.out.println(&quot;File: &quot; + item.getKey() + &quot; not found&quot;);</span>
+<span class="nc" id="L40">            } catch (IOException exception) {</span>
+                //  exception.printStackTrace();
+<span class="fc" id="L42">            }</span>
+<span class="fc" id="L43">        }</span>
+<span class="fc" id="L44">        return links;</span>
+    }
 
     @Override
-    public List&lt;Pair&lt;String, String&gt;&gt; getLinks() {
-<span class="fc" id="L57">        return links;</span>
+    public List&lt;Link&gt; readLinksFromSites(List&lt;String&gt; sites) {
+<span class="fc" id="L49">        links = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (String site : sites) {</span>
+            try {
+<span class="fc" id="L52">                Connection.Response response = Jsoup.connect(site).execute();</span>
+<span class="fc" id="L53">                Document doc = response.parse();</span>
+<span class="fc" id="L54">                getLinksFromDocument(links, doc, site, site);</span>
+<span class="fc" id="L55">            } catch (HttpStatusException e) {</span>
+<span class="fc" id="L56">                System.out.println(&quot;Input link: &quot; + site + &quot; was damaged. Error code: &quot; + e.getStatusCode());</span>
+<span class="fc" id="L57">            } catch (Exception e) {</span>
+<span class="fc" id="L58">                System.out.println(&quot;Input link: &quot; + site + &quot; was damaged.&quot; );</span>
+<span class="fc" id="L59">            }</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">        return links;</span>
     }
+
+    private void getLinksFromDocument(List&lt;Link&gt; links, Document document, String resource, String baseUrl) {
+<span class="fc" id="L65">        Elements linkElements = document.getElementsByTag(&quot;a&quot;);</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (Element element : linkElements) {</span>
+<span class="fc" id="L67">            String url = element.absUrl(&quot;href&quot;);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (url.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L69">                url = element.attr(&quot;href&quot;);</span>
+            }
+<span class="fc" id="L71">            addToLinks(url, resource, baseUrl);</span>
+<span class="fc" id="L72">            url = element.absUrl(&quot;src&quot;);</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">            if (url.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L74">                url = element.attr(&quot;src&quot;);</span>
+            }
+<span class="fc" id="L76">            addToLinks(url, resource, baseUrl);</span>
+<span class="fc" id="L77">        }</span>
+
+<span class="fc" id="L79">    }</span>
+
+    private void addToLinks(String url, String fileName, String baseUrl) {
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        if (!url.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L83">            links.add(new Link(url, fileName, baseUrl));</span>
+        }
+<span class="fc" id="L85">    }</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

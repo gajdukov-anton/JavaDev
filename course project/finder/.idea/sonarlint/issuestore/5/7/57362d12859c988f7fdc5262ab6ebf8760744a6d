@@ -1,16 +1,14 @@
 
-nsquid:S13014"KReplace this "switch" statement by "if" statements to increase readability.(î±¢ûÿÿÿÿ8©«âı,
-msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ®Š8ƒæáı,
-¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(³—ıûÿÿÿÿÿ8ë¯âı,
-[
-squid:S106F"9Replace this use of System.out or System.err by a logger.(±¸Êíûÿÿÿÿ8â‰Êâı,
+¤squid:S1186
+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(³—ıûÿÿÿÿÿ8Ú­ı€-
 U
-squid:S106"9Replace this use of System.out or System.err by a logger.(¼®‡V8¯©èáı,
-Hsquid:S00108")Either remove or fill this block of code.(®‹–µ8«­çáı,
+squid:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB8åú«Ò-
+nsquid:S1301+"KReplace this "switch" statement by "if" statements to increase readability.(î±¢ûÿÿÿÿ8Ú­ı€-
 U
-squid:S106"9Replace this use of System.out or System.err by a logger.(¼®‡V8¡­¶âı,
+squid:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB8¿¹¬Ò-
 V
-squid:S106B"9Replace this use of System.out or System.err by a logger.(å­ù8ìÆâı,
-isquid:S1192E"FDefine a constant instead of duplicating this literal "--out" 3 times.(ŒÉ½ıÿÿÿÿ8©öíâı,
+squid:S106""9Replace this use of System.out or System.err by a logger.(Ø’²˜8ş¬òÏ-
 [
-squid:S106;"9Replace this use of System.out or System.err by a logger.(…ò××ÿÿÿÿÿ8ÙÊ°âı,
+squid:S1061"9Replace this use of System.out or System.err by a logger.(…ò××ÿÿÿÿÿ8Ú­ı€-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(Á™æ±úÿÿÿÿ8Ú­ı€-

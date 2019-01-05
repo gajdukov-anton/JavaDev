@@ -1,6 +1,2 @@
 
-Gsquid:S1068")Remove this unused "sites" private field.(¡ïõ¦8õÑ·Øÿ,
-rsquid:S1450"TRemove the "files" field and declare it as a local variable in the relevant methods.(’‘¡ï8õÑ·Øÿ,
-rsquid:S1450"TRemove the "sites" field and declare it as a local variable in the relevant methods.(¡ïõ¦8ÍøÎÝÿ,
-Gsquid:S1068")Remove this unused "files" private field.(’‘¡ï8õÑ·Øÿ,
-Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÄÒ³—8³‡¼Øÿ,
+Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÄÒ³—8³‡¼Øÿ,

@@ -1,0 +1,7 @@
+http://links.testingcourse.ru/page2.html - ссылка на данный документ
+http://links.testingcourse.ru - базовый url
+http://links.testingcourse.ru/page6.html - работает
+http://links.testingcourse.ru/page7.html - работает
+http://links.testingcourse.ru/page2.html# - работает
+http://volgatech.net/ - работает
+http://links.testingcourse.ru/page2.html - работает

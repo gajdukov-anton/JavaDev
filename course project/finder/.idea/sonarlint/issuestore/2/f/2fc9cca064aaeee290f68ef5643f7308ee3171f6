@@ -1,0 +1,20 @@
+
+V
+squid:S1060"9Replace this use of System.out or System.err by a logger.(¦õìÎ8éº·ª-
+V
+squid:S106*"9Replace this use of System.out or System.err by a logger.(¦õìÎ8Şã·ª-
+nsquid:S1301%"KReplace this "switch" statement by "if" statements to increase readability.(õ¾©àúÿÿÿÿ8½–ı€-
+\
+squid:S106•"9Replace this use of System.out or System.err by a logger.(ãÌ«¾úÿÿÿÿ8¼òëü€-
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(±¸Êíûÿÿÿÿ8Ğ«ŠÀ-
+tsquid:S1192”"PUse already-defined constant 'OUT_SOURCE' instead of duplicating its value here.(Ò¥Ååùÿÿÿÿ8ÑËıú€-
+\"squid:SwitchLastCaseIsDefaultCheck%""Add a default case to this switch.(õ¾©àúÿÿÿÿ8½–ı€-
+V
+squid:S106V"9Replace this use of System.out or System.err by a logger.(×Í¬Ò8ÔûòÑ-
+V
+squid:S1064"9Replace this use of System.out or System.err by a logger.(Ùô«Æ8ùëº€-
+W
+squid:S106"9Replace this use of System.out or System.err by a logger.(å­ù8ÑËıú€-
+V
+squid:S106N"9Replace this use of System.out or System.err by a logger.(Ëëş˜8¶’³€-

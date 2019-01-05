@@ -1,1 +1,2 @@
-"javascript:alert('Hello');","404","HTTP error fetching URL"
+"http://links.testingcourse.ru/","javascript:alert('Hello');","404","Not Found"
+"http://links.testingcourse.ru/","javascript:alert('Hello');","404","Not Found"

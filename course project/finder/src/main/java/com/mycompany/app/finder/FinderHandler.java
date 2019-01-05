@@ -1,103 +1,53 @@
 package com.mycompany.app.finder;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.mycompany.app.finder.brokenlinksfinder.BrokenLinksFinder;
 
 public class FinderHandler {
 
-    private Finder finder;
-    private String command;
+    private static final String FIND_BROKEN_LINKS = "BrokenLinks";
     private String[] commandData;
-    List<String> inputResource;
-    String outFile;
 
     public FinderHandler() {
 
     }
 
-    public void setCommand(String command) {
-        commandData = command.split(" ");
+    public void doCommand(String command) {
+        commandData = command.split("( )+");
+        for (String str : commandData) {
+            System.out.println(str);
+        }
         if (commandData.length > 0) {
-            analiseCommand(commandData);
+            runCommand(commandData);
         } else {
-            System.out.println("Please, set command.");
+            System.out.println("Please, set the command.");
         }
+
     }
 
-    public void DoCommand() {
-        if (command != null) {
-
+    public void doCommand(String[] commandData) {
+        for (String str : commandData) {
+            System.out.println(str);
+        }
+        if (commandData.length > 0) {
+            runCommand(commandData);
         } else {
-            System.out.println("Please, set command.");
+            System.out.println("Please, set the command in the parameters, when starting the program.");
         }
-    }
-
-    public String getCommand() {
-        return command;
-    }
-
-    public List<String> getInputResource() {
-        return inputResource;
     }
 
     public String[] getCommandData() {
         return commandData;
     }
 
-    public String getOutFile() {
-        return outFile;
-    }
-
-    private void analiseCommand(String[] commandData) {
+    private void runCommand(String[] commandData) {
         switch (commandData[0]) {
-            case "brokenLinks":
-                if (analiseAttributes()) {
-                    this.command = commandData[0];
-                }
+            case FIND_BROKEN_LINKS:
+                BrokenLinksFinder brokenLinksFinder = new BrokenLinksFinder(commandData);
+                brokenLinksFinder.run();
                 break;
             default:
                 System.out.println("Command is not recognized.");
         }
     }
 
-    private boolean analiseAttributes() {
-
-        if (!(arrayContainStr(commandData, "--files") || !(arrayContainStr(commandData, "--links")))) {
-            System.out.println("Attribute --files/--links is not recognized");
-            return false;
-        }
-        if (!(arrayContainStr(commandData, "--out"))) {
-            System.out.println("Attribute --out is not recognized");
-            return false;
-        }
-        inputResource = getInputSource();
-        outFile = getOutputFile();
-        return true;
-    }
-
-    private List<String> getInputSource() {
-        List<String> inputSource = new ArrayList<>();
-        int counter = 2;
-        while (!(commandData[counter].equals("--out"))) {
-            inputSource.add(commandData[counter]);
-        }
-        return inputSource;
-    }
-
-    private String getOutputFile() {
-        if (commandData[commandData.length - 1].equals("--out")) {
-            return null;
-        } else {
-            return commandData[commandData.length - 1];
-        }
-    }
-
-    private boolean arrayContainStr(String[] array, String str) {
-        for (String item : array) {
-            if (item.equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

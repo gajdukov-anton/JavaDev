@@ -1,18 +1,0 @@
-
-_squid:S2095i"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(ÝÿÇ¨
-gsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(¶æ€èýÿÿÿÿ
-}"squid:ClassVariableVisibilityCheck"OMake str a static final constant or non-public and provide accessors if needed.(¼òšý
-nsquid:S37763"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(»¥š•ûÿÿÿÿ
-Xsquid:S1126U"AReplace this if-then-else statement by a single return statement.( °Àü
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(¨Íàžøÿÿÿÿ
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÙîÃ†
-~"squid:ClassVariableVisibilityCheck"PMake code a static final constant or non-public and provide accessors if needed.(½±Ï©
-T
-squid:S106w"9Replace this use of System.out or System.err by a logger.(ý™øøÿÿÿÿ
-£%squid:RedundantThrowsDeclarationCheck!"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(¬àµíøÿÿÿÿ
-ssquid:S1450"WRemove the "response" field and declare it as a local variable in the relevant methods.(•Ëÿ¬ûÿÿÿÿ
-^squid:S2095j"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ó‰¶!
-O
-squid:S106}"9Replace this use of System.out or System.err by a logger.(ÙîÃ†
