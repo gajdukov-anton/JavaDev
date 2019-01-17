@@ -1,0 +1,7 @@
+ссылка на этот сайт http://links.testingcourse.ru/page1.html
+http://links.testingcourse.ru - базовая
+http://links.testingcourse.ru/page3.html - работает
+http://links.testingcourse.ru/page2.html - работает
+http://links.testingcourse.ru/page.html - не работает
+http://links.testingcourse.ru/page5.html - работает
+http://links.testingcourse.ru/page4.html - работает

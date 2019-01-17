@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Finder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finder</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.app.finder</a> &gt; <span class="el_source">Finder.java</span></div><h1>Finder.java</h1><pre class="source lang-java linenums">package com.mycompany.app.finder;
+
+import com.mycompany.app.finder.models.Link;
+import com.mycompany.app.finder.models.ProcessedLinksContainer;
+import com.mycompany.app.finder.reader.LinkReader;
+import com.mycompany.app.finder.scannerhandler.ScannerHandler;
+import com.mycompany.app.finder.writer.LinkWriter;
+import javafx.util.Pair;
+
+import java.util.List;
+
+public class Finder implements IFinder {
+    private List&lt;Link&gt; links;
+<span class="fc" id="L14">    private ProcessedLinksContainer processedLinks = new ProcessedLinksContainer();</span>
+<span class="fc" id="L15">    private LinkReader linkReader = new LinkReader();</span>
+<span class="fc" id="L16">    private LinkWriter linkWriter = new LinkWriter();</span>
+<span class="fc" id="L17">    private ScannerHandler scannerHandler = new ScannerHandler();</span>
+
+<span class="fc" id="L19">    public Finder(){</span>
+<span class="fc" id="L20">    }</span>
+
+    public void setFiles(List&lt;Pair&lt;String, String&gt;&gt; files) {
+<span class="fc" id="L23">        links = linkReader.readLinksFromFiles(files);</span>
+<span class="fc" id="L24">    }</span>
+
+    public void setSites(List&lt;String&gt; sites) {
+<span class="fc" id="L27">        links = linkReader.readLinksFromSites(sites);</span>
+<span class="fc" id="L28">    }</span>
+
+    public ProcessedLinksContainer getProcessedLinks() {
+<span class="fc" id="L31">        return processedLinks;</span>
+    }
+
+    @Override
+    public ProcessedLinksContainer findBrokenLinks() {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!links.isEmpty()) {</span>
+<span class="fc" id="L37">            processedLinks = scannerHandler.scan(links);</span>
+        }
+<span class="fc" id="L39">        return processedLinks;</span>
+    }
+
+    public List&lt;Link&gt; getLinks() {
+<span class="fc" id="L43">        return links;</span>
+    }
+
+    @Override
+    public void createResultFile(String resultFileName) {
+<span class="fc" id="L48">        linkWriter.setFileName(resultFileName);</span>
+<span class="fc" id="L49">        linkWriter.createReportFile(processedLinks);</span>
+<span class="fc" id="L50">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

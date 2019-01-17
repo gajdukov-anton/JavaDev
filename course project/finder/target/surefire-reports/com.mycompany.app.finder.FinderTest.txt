@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.app.finder.FinderTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.63 sec - in com.mycompany.app.finder.FinderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.493 sec - in com.mycompany.app.finder.FinderTest

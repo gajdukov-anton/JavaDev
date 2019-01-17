@@ -47,3 +47,5 @@ Osrc/main/java/com/mycompany/app/finder/brokenlinksfinder/BrokenLinksFinder.java
 Ssrc/test/java/com/mycompany/app/finder/brokenlinksfinder/BrokenLinksFinderTest.java,2\8\281e71c9f13aa0277e77fbf10c781551851ff873
 €
 Psrc/main/java/com/mycompany/app/finder/brokenlinksfinder/IBrokenLinksFinder.java,b\3\b3f5cf70bbbe9e663eb27c4220f50b5975947a78
+v
+Fsrc/test/java/com/mycompany/app/finder/scanner/ScannerHandlerTest.java,2\6\269e8b3f790962801c10f50e5a6906c6c930e4e2

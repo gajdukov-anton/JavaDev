@@ -1,0 +1,7 @@
+ссылка на этот сайт http://links.testingcourse.ru
+http://links.testingcourse.ru - базовая ссылка
+http://links.testingcourse.ru/page1.html - работает
+javascript:alert(&#39;Hello&#39;); - скрипт, но работает
+http://links.testingcourse.ru/page2.html - работает
+http://www.yandex.ru/ - работает
+http://links.testingcourse.ru/index.html - работает

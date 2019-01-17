@@ -1,0 +1,4 @@
+http://links.testingcourse.ru/page3.html - ссылка на данный документ
+http://links.testingcourse.ru - базовый url
+http://links.testingcourse.ru/page12.html - не работает
+http://links.testingcourse.ru/page13.html - не работает

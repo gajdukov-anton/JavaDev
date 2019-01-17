@@ -6,7 +6,7 @@ finder,com.mycompany.app.finder.scannerhandler,ScannerHandler,6,172,1,11,4,37,1,
 finder,com.mycompany.app.finder.reader,LinkReader,1,200,1,11,1,41,1,10,0,5
 finder,com.mycompany.app.finder.models,ProcessedLink,0,33,0,0,0,12,0,6,0,6
 finder,com.mycompany.app.finder.models,ProcessedLinksContainer,0,63,0,0,0,14,0,5,0,5
-finder,com.mycompany.app.finder.models,Link,4,68,5,7,2,17,5,7,0,6
+finder,com.mycompany.app.finder.models,Link,5,67,6,6,2,17,6,6,0,6
 finder,com.mycompany.app.finder,Finder,0,67,0,2,0,18,0,8,0,7
 finder,com.mycompany.app.finder,FinderHandler,0,66,1,9,0,19,1,9,0,5
 finder,com.mycompany.app.finder.writer,LinkWriter,3,69,0,2,2,15,0,5,0,4
