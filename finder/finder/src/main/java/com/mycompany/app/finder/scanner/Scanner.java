@@ -13,6 +13,9 @@ import java.util.concurrent.Callable;
 
 public class Scanner implements Callable<ProcessedLink>, IScanner {
 
+    private final static int HTTP_INFO_CODE = 100;
+    private final static int HTTP_REDIRECT_MESSAGES_CODE = 300;
+
     private Link link;
 
     public Scanner(Link link) {
@@ -62,6 +65,6 @@ public class Scanner implements Callable<ProcessedLink>, IScanner {
     }
 
     private boolean isGoodLink(int statusCode) {
-        return statusCode >= 100 && statusCode < 300;
+        return statusCode >= HTTP_INFO_CODE && statusCode < HTTP_REDIRECT_MESSAGES_CODE;
     }
 }
