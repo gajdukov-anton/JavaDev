@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="3.078" tests="5" errors="0" skipped="0" failures="0">
+<testsuite name="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="7.407" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_192\jre\bin"/>
@@ -64,9 +64,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase name="incorrectInputUserDataTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0.001"/>
-  <testcase name="incorrectInputFilesTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0.019"/>
-  <testcase name="getFileSourceTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="2.747"/>
-  <testcase name="incorrectInputAttributesTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0.001"/>
-  <testcase name="getLinkSource" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0.31"/>
+  <testcase name="incorrectInputUserDataTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0"/>
+  <testcase name="incorrectInputFilesTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0"/>
+  <testcase name="getFileSourceTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="7.124"/>
+  <testcase name="incorrectInputAttributesTest" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0"/>
+  <testcase name="getLinkSource" classname="com.mycompany.app.finder.brokenlinksanalyzer.BrokenLinksAnalyzerTest" time="0.283"/>
 </testsuite>

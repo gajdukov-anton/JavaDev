@@ -119,9 +119,13 @@ public class BrokenLinksAnalyzer implements IBrokenLinksAnalyzer {
             file = commandData[counter];
             counter++;
         }
-        while (counter < commandData.length && !commandData[counter].equals(OUT_SOURCE) && !commandData[counter + 1].equals(OUT_SOURCE)) {
-            fileSource.add(new Pair<>(commandData[counter], commandData[counter + 1]));
-            counter += 2;
+        while (counter < commandData.length) {
+            if (!commandData[counter].equals(OUT_SOURCE) && !commandData[counter + 1].equals(OUT_SOURCE)) {
+                fileSource.add(new Pair<>(commandData[counter], commandData[counter + 1]));
+                counter += 2;
+            } else {
+                break;
+            }
         }
         return fileSource;
     }

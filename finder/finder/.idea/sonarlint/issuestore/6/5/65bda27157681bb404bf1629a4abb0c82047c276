@@ -1,11 +1,11 @@
 
 [
-squid:S1068"9Replace this use of System.out or System.err by a logger.(ô°Ò€ÿÿÿÿÿ8–Áá«…-
+squid:S106'"9Replace this use of System.out or System.err by a logger.(àï’çùÿÿÿÿ8°úã«…-
 V
 squid:S106%"9Replace this use of System.out or System.err by a logger.(úË²ý8–Áá«…-
 Jsquid:S1172>",Remove this unused method parameter "links".(¾ÛÞã8–Áá«…-
 Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ýÅŠ½8–Áá«…-
 [
-squid:S106'"9Replace this use of System.out or System.err by a logger.(àï’çùÿÿÿÿ8°úã«…-
+squid:S1068"9Replace this use of System.out or System.err by a logger.(ô°Ò€ÿÿÿÿÿ8–Áá«…-
 V
 squid:S1066"9Replace this use of System.out or System.err by a logger.(”ñœœ8–Áá«…-
