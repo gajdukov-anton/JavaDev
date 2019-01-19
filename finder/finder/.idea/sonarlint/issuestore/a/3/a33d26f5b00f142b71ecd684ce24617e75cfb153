@@ -1,20 +1,0 @@
-
-V
-squid:S106Y"9Replace this use of System.out or System.err by a logger.(×Í¬Ò8Ò÷¬…-
-V
-squid:S106Q"9Replace this use of System.out or System.err by a logger.(Ëëş˜8Ò÷¬…-
-\"squid:SwitchLastCaseIsDefaultCheck%""Add a default case to this switch.(õ¾©àúÿÿÿÿ8Ò÷¬…-
-V
-squid:S1060"9Replace this use of System.out or System.err by a logger.(¦õìÎ8Ò÷¬…-
-nsquid:S1301%"KReplace this "switch" statement by "if" statements to increase readability.(õ¾©àúÿÿÿÿ8Ò÷¬…-
-V
-squid:S1064"9Replace this use of System.out or System.err by a logger.(Ùô«Æ8Ò÷¬…-
-V
-squid:S106*"9Replace this use of System.out or System.err by a logger.(¦õìÎ8Ò÷¬…-
-\
-squid:S106ˆ"9Replace this use of System.out or System.err by a logger.(±¸Êíûÿÿÿÿ8Ò÷¬…-
-W
-squid:S106•"9Replace this use of System.out or System.err by a logger.(å­ù8Ò÷¬…-
-tsquid:S1192›"PUse already-defined constant 'OUT_SOURCE' instead of duplicating its value here.(Ò¥Ååùÿÿÿÿ8Ò÷¬…-
-\
-squid:S106œ"9Replace this use of System.out or System.err by a logger.(ãÌ«¾úÿÿÿÿ8Ò÷¬…-

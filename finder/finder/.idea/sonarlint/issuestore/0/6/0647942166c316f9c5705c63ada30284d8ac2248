@@ -1,10 +1,0 @@
-
-_squid:S2095"HUse try-with-resources or close this "FileReader" in a "finally" clause.(è»ë©
-gsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(ÿø×Àúÿÿÿÿ
-\squid:S2259"EA "NullPointerException" could be thrown; "lineOne" is nullable here.(øüûë
-gsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(ÚÚì•üÿÿÿÿ
-Fsquid:S1066"/Merge this if statement with the enclosing one.(øüûë
-_squid:S2095"HUse try-with-resources or close this "FileReader" in a "finally" clause.(ç×Ò
-csquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(“ÒæÏ
-hsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ðÏ£Ôùÿÿÿÿ
-[squid:S2147)"DCombine this catch with the one at line 39, which has the same body.(×¬œÓ

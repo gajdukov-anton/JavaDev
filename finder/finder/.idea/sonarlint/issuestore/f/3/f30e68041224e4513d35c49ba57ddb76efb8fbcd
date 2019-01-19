@@ -1,6 +1,0 @@
-
-usquid:S1192"^Define a constant instead of duplicating this literal "http://links.testingcourse.ru" 5 times.(ŸîÊ
-Xsquid:S1481"<Remove this unused "processedLinksContainer" local variable.(…ÓÌÒûÿÿÿÿ
-Xsquid:S1481#"<Remove this unused "processedLinksContainer" local variable.(…ÓÌÒûÿÿÿÿ
-gsquid:S1854"KRemove this useless assignment to local variable "processedLinksContainer".(…ÓÌÒûÿÿÿÿ
-gsquid:S1854#"KRemove this useless assignment to local variable "processedLinksContainer".(…ÓÌÒûÿÿÿÿ

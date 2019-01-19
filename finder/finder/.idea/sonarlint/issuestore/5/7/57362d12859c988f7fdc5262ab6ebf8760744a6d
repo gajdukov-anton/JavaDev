@@ -1,9 +1,0 @@
-
-esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(î±¢ûÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(Á™æ±úÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ø’²˜
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(…ò××ÿÿÿÿÿ
-›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(³—ıûÿÿÿÿÿ
