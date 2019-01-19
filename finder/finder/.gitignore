@@ -3,6 +3,8 @@
 
 .idea/
 target/
+finder.iml
+
 
 # Log file
 *.log

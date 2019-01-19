@@ -81,5 +81,4 @@ public class LinkReader implements ILinkReader {
             links.add(new Link(url, fileName, baseUrl));
         }
     }
-
 }
